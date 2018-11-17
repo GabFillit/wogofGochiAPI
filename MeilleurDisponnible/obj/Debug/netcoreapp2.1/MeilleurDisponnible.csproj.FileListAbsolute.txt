@@ -1,0 +1,14 @@
+C:\Users\gabriel.fillit\source\repos\MeilleurDisponnible\MeilleurDisponnible\bin\Debug\netcoreapp2.1\MeilleurDisponnible.deps.json
+C:\Users\gabriel.fillit\source\repos\MeilleurDisponnible\MeilleurDisponnible\bin\Debug\netcoreapp2.1\MeilleurDisponnible.runtimeconfig.json
+C:\Users\gabriel.fillit\source\repos\MeilleurDisponnible\MeilleurDisponnible\bin\Debug\netcoreapp2.1\MeilleurDisponnible.runtimeconfig.dev.json
+C:\Users\gabriel.fillit\source\repos\MeilleurDisponnible\MeilleurDisponnible\bin\Debug\netcoreapp2.1\MeilleurDisponnible.dll
+C:\Users\gabriel.fillit\source\repos\MeilleurDisponnible\MeilleurDisponnible\bin\Debug\netcoreapp2.1\MeilleurDisponnible.pdb
+C:\Users\gabriel.fillit\source\repos\MeilleurDisponnible\MeilleurDisponnible\obj\Debug\netcoreapp2.1\MeilleurDisponnible.csprojAssemblyReference.cache
+C:\Users\gabriel.fillit\source\repos\MeilleurDisponnible\MeilleurDisponnible\obj\Debug\netcoreapp2.1\MeilleurDisponnible.csproj.CoreCompileInputs.cache
+C:\Users\gabriel.fillit\source\repos\MeilleurDisponnible\MeilleurDisponnible\obj\Debug\netcoreapp2.1\MeilleurDisponnible.RazorAssemblyInfo.cache
+C:\Users\gabriel.fillit\source\repos\MeilleurDisponnible\MeilleurDisponnible\obj\Debug\netcoreapp2.1\MeilleurDisponnible.RazorAssemblyInfo.cs
+C:\Users\gabriel.fillit\source\repos\MeilleurDisponnible\MeilleurDisponnible\obj\Debug\netcoreapp2.1\MeilleurDisponnible.AssemblyInfoInputs.cache
+C:\Users\gabriel.fillit\source\repos\MeilleurDisponnible\MeilleurDisponnible\obj\Debug\netcoreapp2.1\MeilleurDisponnible.AssemblyInfo.cs
+C:\Users\gabriel.fillit\source\repos\MeilleurDisponnible\MeilleurDisponnible\obj\Debug\netcoreapp2.1\MeilleurDisponnible.RazorTargetAssemblyInfo.cache
+C:\Users\gabriel.fillit\source\repos\MeilleurDisponnible\MeilleurDisponnible\obj\Debug\netcoreapp2.1\MeilleurDisponnible.dll
+C:\Users\gabriel.fillit\source\repos\MeilleurDisponnible\MeilleurDisponnible\obj\Debug\netcoreapp2.1\MeilleurDisponnible.pdb
