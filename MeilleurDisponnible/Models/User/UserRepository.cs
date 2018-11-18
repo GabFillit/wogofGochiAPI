@@ -7,7 +7,7 @@ namespace MeilleurDisponnible.Models.User
 {
     public class UserRepository : IUserRepository
     {
-        public List<UserEntity> UserList { get; set; }
+        public static List<UserEntity> UserList { get; set; }
 
         public UserRepository()
         {
@@ -23,38 +23,34 @@ namespace MeilleurDisponnible.Models.User
 
         public List<UserEntity> GetUsers()
         {
-            throw new NotImplementedException();
+            return UserList;
         }
 
         public UserEntity GetUser(int id)
         {
-            return UserList.ElementAtOrDefault(id);
+            return UserList.FirstOrDefault(user => user.Id == id);
         }
 
-        public void CreateUser(string name)
+        public int CreateUser(string name)
         {
+            int id = UserList.Count;
             UserList.Add(new UserEntity
             {
-                Id = UserList.Count,
+                Id = id,
                 Name = name
             });
+
+            return id;
         }
 
-        public bool UpdateUser(int id, string name)
+        public void UpdateUser(UserEntity user, string name)
         {
-            bool updated = false;
-            UserEntity user = UserList.ElementAtOrDefault(id);
-            if (user != null)
-            {
-                user.Name = name;
-                updated = true;
-            }
-            return updated;
+            user.Name = name;
         }
 
-        public void DeleteUser(int id)
+        public void DeleteUser(UserEntity user)
         {
-            UserList.RemoveAt(id);
+            UserList.Remove(user);
         }
     }
 }

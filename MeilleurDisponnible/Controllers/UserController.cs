@@ -21,14 +21,14 @@ namespace MeilleurDisponnible.Controllers
 
         // GET api/user
         [HttpGet]
-        public ActionResult<List<UserEntity>> Get()
+        public IActionResult Get()
         {
-            return _userRepository.GetUsers();
+            return Ok(_userRepository.GetUsers());
         }
 
         // GET api/user/5
         [HttpGet("{id}")]
-        public ActionResult<UserEntity> Get(int id)
+        public IActionResult Get(int id)
         {
             UserEntity user = _userRepository.GetUser(id);
             if (user == null)
@@ -40,27 +40,48 @@ namespace MeilleurDisponnible.Controllers
 
         // POST api/user
         [HttpPost]
-        public void Post([FromBody] string name)
+        public IActionResult Post([FromBody] string name)
         {
-            _userRepository.CreateUser(name);
+            if (String.IsNullOrEmpty(name))
+            {
+                return BadRequest("Name is empty");
+            }
+
+            int id =_userRepository.CreateUser(name);
+            return Ok(id);
         }
 
         // PUT api/user/5
         [HttpPut("{id}")]
-        public ActionResult Put(int id, [FromBody] string name)
+        public IActionResult Put(int id, [FromBody] string name)
         {
-            if (_userRepository.UpdateUser(id, name))
+            if (String.IsNullOrEmpty(name))
             {
-                return Ok();
+                return BadRequest("Name is empty");
             }
-            return NotFound();
+
+            UserEntity user = _userRepository.GetUser(id);
+            if (user == null)
+            {
+                return NotFound();
+            }
+
+            _userRepository.UpdateUser(user, name);
+            return Ok();
         }
 
         // DELETE api/user/5
         [HttpDelete("{id}")]
-        public void Delete(int id)
+        public IActionResult Delete(int id)
         {
-            _userRepository.DeleteUser(id);
+            UserEntity user = _userRepository.GetUser(id);
+            if (user == null)
+            {
+                return NotFound();
+            }
+
+            _userRepository.DeleteUser(user);
+            return Ok();
         }
     }
 }
