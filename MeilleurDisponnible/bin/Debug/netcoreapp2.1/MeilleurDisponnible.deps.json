@@ -1,7 +1,7 @@
 {
   "runtimeTarget": {
     "name": ".NETCoreApp,Version=v2.1",
-    "signature": "e071b1a7c9d575b1b3d9ba6c9a1be1d9c6701ca2"
+    "signature": "642d52f4d449a81a5030e7b69b6e0abbe4bc0202"
   },
   "compilationOptions": {
     "defines": [
@@ -24,9 +24,14 @@
     ".NETCoreApp,Version=v2.1": {
       "MeilleurDisponnible/1.0.0": {
         "dependencies": {
+          "FluentValidation.AspNetCore": "8.0.101",
           "Microsoft.AspNetCore.App": "2.1.1",
           "Microsoft.AspNetCore.Razor.Design": "2.1.2",
-          "Microsoft.NETCore.App": "2.1.0"
+          "Microsoft.EntityFrameworkCore.Sqlite": "2.1.4",
+          "Microsoft.EntityFrameworkCore.Sqlite.Design": "1.1.6",
+          "Microsoft.NETCore.App": "2.1.0",
+          "Microsoft.VisualStudio.Web.CodeGeneration.Design": "2.1.6",
+          "System.Data.SQLite": "1.0.109.2"
         },
         "runtime": {
           "MeilleurDisponnible.dll": {}
@@ -35,7 +40,189 @@
           "MeilleurDisponnible.dll": {}
         }
       },
+      "FluentValidation/8.0.101": {
+        "dependencies": {
+          "System.Collections.Concurrent": "4.3.0",
+          "System.ComponentModel.Annotations": "4.5.0",
+          "System.ComponentModel.Primitives": "4.3.0",
+          "System.ValueTuple": "4.5.0"
+        },
+        "runtime": {
+          "lib/netstandard2.0/FluentValidation.dll": {
+            "assemblyVersion": "8.0.0.0",
+            "fileVersion": "8.0.101.0"
+          }
+        },
+        "compile": {
+          "lib/netstandard2.0/FluentValidation.dll": {}
+        }
+      },
+      "FluentValidation.AspNetCore/8.0.101": {
+        "dependencies": {
+          "FluentValidation": "8.0.101",
+          "Microsoft.AspNetCore.Mvc": "2.1.1"
+        },
+        "runtime": {
+          "lib/netstandard2.0/FluentValidation.AspNetCore.dll": {
+            "assemblyVersion": "8.0.0.0",
+            "fileVersion": "8.0.101.0"
+          }
+        },
+        "compile": {
+          "lib/netstandard2.0/FluentValidation.AspNetCore.dll": {}
+        }
+      },
       "Microsoft.AspNetCore.Razor.Design/2.1.2": {},
+      "Microsoft.CodeAnalysis.CSharp.Workspaces/2.8.0": {
+        "dependencies": {
+          "Microsoft.CodeAnalysis.CSharp": "2.8.0",
+          "Microsoft.CodeAnalysis.Workspaces.Common": "2.8.0"
+        },
+        "runtime": {
+          "lib/netstandard1.3/Microsoft.CodeAnalysis.CSharp.Workspaces.dll": {
+            "assemblyVersion": "2.8.0.0",
+            "fileVersion": "2.8.0.62830"
+          }
+        },
+        "compile": {
+          "lib/netstandard1.3/Microsoft.CodeAnalysis.CSharp.Workspaces.dll": {}
+        }
+      },
+      "Microsoft.CodeAnalysis.Workspaces.Common/2.8.0": {
+        "dependencies": {
+          "Microsoft.CodeAnalysis.Common": "2.8.0",
+          "System.Composition": "1.0.31",
+          "System.Diagnostics.Contracts": "4.3.0",
+          "System.Linq.Parallel": "4.3.0",
+          "System.ObjectModel": "4.3.0",
+          "System.Text.RegularExpressions": "4.3.0",
+          "System.Threading.Tasks.Parallel": "4.3.0"
+        },
+        "runtime": {
+          "lib/netstandard1.3/Microsoft.CodeAnalysis.Workspaces.dll": {
+            "assemblyVersion": "2.8.0.0",
+            "fileVersion": "2.8.0.62830"
+          }
+        },
+        "compile": {
+          "lib/netstandard1.3/Microsoft.CodeAnalysis.Workspaces.dll": {}
+        }
+      },
+      "Microsoft.Data.Sqlite.Core/2.1.0": {
+        "dependencies": {
+          "SQLitePCLRaw.core": "1.1.11"
+        },
+        "runtime": {
+          "lib/netstandard2.0/Microsoft.Data.Sqlite.dll": {
+            "assemblyVersion": "2.1.0.0",
+            "fileVersion": "2.1.0.18136"
+          }
+        },
+        "compile": {
+          "lib/netstandard2.0/Microsoft.Data.Sqlite.dll": {}
+        }
+      },
+      "Microsoft.EntityFrameworkCore/2.1.4": {
+        "dependencies": {
+          "Microsoft.EntityFrameworkCore.Abstractions": "2.1.4",
+          "Microsoft.EntityFrameworkCore.Analyzers": "2.1.4",
+          "Microsoft.Extensions.Caching.Memory": "2.1.1",
+          "Microsoft.Extensions.DependencyInjection": "2.1.1",
+          "Microsoft.Extensions.Logging": "2.1.1",
+          "Remotion.Linq": "2.2.0",
+          "System.Collections.Immutable": "1.5.0",
+          "System.ComponentModel.Annotations": "4.5.0",
+          "System.Diagnostics.DiagnosticSource": "4.5.1",
+          "System.Interactive.Async": "3.1.1"
+        },
+        "runtime": {
+          "lib/netstandard2.0/Microsoft.EntityFrameworkCore.dll": {
+            "assemblyVersion": "2.1.4.0",
+            "fileVersion": "2.1.4.18263"
+          }
+        },
+        "compile": {
+          "lib/netstandard2.0/Microsoft.EntityFrameworkCore.dll": {}
+        }
+      },
+      "Microsoft.EntityFrameworkCore.Abstractions/2.1.4": {
+        "runtime": {
+          "lib/netstandard2.0/Microsoft.EntityFrameworkCore.Abstractions.dll": {
+            "assemblyVersion": "2.1.4.0",
+            "fileVersion": "2.1.4.18263"
+          }
+        },
+        "compile": {
+          "lib/netstandard2.0/Microsoft.EntityFrameworkCore.Abstractions.dll": {}
+        }
+      },
+      "Microsoft.EntityFrameworkCore.Analyzers/2.1.4": {},
+      "Microsoft.EntityFrameworkCore.Relational/2.1.4": {
+        "dependencies": {
+          "Microsoft.EntityFrameworkCore": "2.1.4"
+        },
+        "runtime": {
+          "lib/netstandard2.0/Microsoft.EntityFrameworkCore.Relational.dll": {
+            "assemblyVersion": "2.1.4.0",
+            "fileVersion": "2.1.4.18263"
+          }
+        },
+        "compile": {
+          "lib/netstandard2.0/Microsoft.EntityFrameworkCore.Relational.dll": {}
+        }
+      },
+      "Microsoft.EntityFrameworkCore.Relational.Design/1.1.6": {
+        "dependencies": {
+          "Microsoft.EntityFrameworkCore.Relational": "2.1.4",
+          "NETStandard.Library": "2.0.3"
+        },
+        "runtime": {
+          "lib/netstandard1.3/Microsoft.EntityFrameworkCore.Relational.Design.dll": {
+            "assemblyVersion": "1.1.6.0",
+            "fileVersion": "1.1.6.40621"
+          }
+        },
+        "compile": {
+          "lib/netstandard1.3/Microsoft.EntityFrameworkCore.Relational.Design.dll": {}
+        }
+      },
+      "Microsoft.EntityFrameworkCore.Sqlite/2.1.4": {
+        "dependencies": {
+          "Microsoft.EntityFrameworkCore.Sqlite.Core": "2.1.4",
+          "SQLitePCLRaw.bundle_green": "1.1.11"
+        }
+      },
+      "Microsoft.EntityFrameworkCore.Sqlite.Core/2.1.4": {
+        "dependencies": {
+          "Microsoft.Data.Sqlite.Core": "2.1.0",
+          "Microsoft.EntityFrameworkCore.Relational": "2.1.4"
+        },
+        "runtime": {
+          "lib/netstandard2.0/Microsoft.EntityFrameworkCore.Sqlite.dll": {
+            "assemblyVersion": "2.1.4.0",
+            "fileVersion": "2.1.4.18263"
+          }
+        },
+        "compile": {
+          "lib/netstandard2.0/Microsoft.EntityFrameworkCore.Sqlite.dll": {}
+        }
+      },
+      "Microsoft.EntityFrameworkCore.Sqlite.Design/1.1.6": {
+        "dependencies": {
+          "Microsoft.EntityFrameworkCore.Relational.Design": "1.1.6",
+          "Microsoft.EntityFrameworkCore.Sqlite": "2.1.4",
+          "NETStandard.Library": "2.0.3"
+        },
+        "runtime": {
+          "lib/netstandard1.3/Microsoft.EntityFrameworkCore.Sqlite.Design.dll": {
+            "assemblyVersion": "1.1.6.0",
+            "fileVersion": "1.1.6.40621"
+          }
+        },
+        "compile": {
+          "lib/netstandard1.3/Microsoft.EntityFrameworkCore.Sqlite.Design.dll": {}
+        }
+      },
       "Microsoft.NETCore.App/2.1.0": {
         "dependencies": {
           "Microsoft.NETCore.DotNetHostPolicy": "2.1.0",
@@ -67,7 +254,6 @@
           "ref/netcoreapp2.1/System.Data.dll": {},
           "ref/netcoreapp2.1/System.Diagnostics.Contracts.dll": {},
           "ref/netcoreapp2.1/System.Diagnostics.Debug.dll": {},
-          "ref/netcoreapp2.1/System.Diagnostics.DiagnosticSource.dll": {},
           "ref/netcoreapp2.1/System.Diagnostics.FileVersionInfo.dll": {},
           "ref/netcoreapp2.1/System.Diagnostics.Process.dll": {},
           "ref/netcoreapp2.1/System.Diagnostics.StackTrace.dll": {},
@@ -202,11 +388,514 @@
       },
       "Microsoft.NETCore.Platforms/2.1.0": {},
       "Microsoft.NETCore.Targets/2.1.0": {},
+      "Microsoft.VisualStudio.Web.CodeGeneration/2.1.6": {
+        "dependencies": {
+          "Microsoft.Extensions.DependencyInjection": "2.1.1",
+          "Microsoft.VisualStudio.Web.CodeGeneration.EntityFrameworkCore": "2.1.6"
+        },
+        "runtime": {
+          "lib/netstandard2.0/Microsoft.VisualStudio.Web.CodeGeneration.dll": {
+            "assemblyVersion": "2.1.6.0",
+            "fileVersion": "2.1.6.18298"
+          }
+        },
+        "compile": {
+          "lib/netstandard2.0/Microsoft.VisualStudio.Web.CodeGeneration.dll": {}
+        }
+      },
+      "Microsoft.VisualStudio.Web.CodeGeneration.Contracts/2.1.6": {
+        "dependencies": {
+          "Newtonsoft.Json": "11.0.2"
+        },
+        "runtime": {
+          "lib/netstandard2.0/Microsoft.VisualStudio.Web.CodeGeneration.Contracts.dll": {
+            "assemblyVersion": "2.1.6.0",
+            "fileVersion": "2.1.6.18298"
+          }
+        },
+        "compile": {
+          "lib/netstandard2.0/Microsoft.VisualStudio.Web.CodeGeneration.Contracts.dll": {}
+        }
+      },
+      "Microsoft.VisualStudio.Web.CodeGeneration.Core/2.1.6": {
+        "dependencies": {
+          "Microsoft.Extensions.DependencyInjection": "2.1.1",
+          "Microsoft.VisualStudio.Web.CodeGeneration.Templating": "2.1.6",
+          "Newtonsoft.Json": "11.0.2"
+        },
+        "runtime": {
+          "lib/netstandard2.0/Microsoft.VisualStudio.Web.CodeGeneration.Core.dll": {
+            "assemblyVersion": "2.1.6.0",
+            "fileVersion": "2.1.6.18298"
+          }
+        },
+        "compile": {
+          "lib/netstandard2.0/Microsoft.VisualStudio.Web.CodeGeneration.Core.dll": {}
+        }
+      },
+      "Microsoft.VisualStudio.Web.CodeGeneration.Design/2.1.6": {
+        "dependencies": {
+          "Microsoft.VisualStudio.Web.CodeGenerators.Mvc": "2.1.6"
+        },
+        "runtime": {
+          "lib/netstandard2.0/dotnet-aspnet-codegenerator-design.dll": {
+            "assemblyVersion": "2.1.6.0",
+            "fileVersion": "2.1.6.18298"
+          }
+        },
+        "compile": {
+          "lib/netstandard2.0/dotnet-aspnet-codegenerator-design.dll": {}
+        }
+      },
+      "Microsoft.VisualStudio.Web.CodeGeneration.EntityFrameworkCore/2.1.6": {
+        "dependencies": {
+          "Microsoft.VisualStudio.Web.CodeGeneration.Core": "2.1.6"
+        },
+        "runtime": {
+          "lib/netstandard2.0/Microsoft.VisualStudio.Web.CodeGeneration.EntityFrameworkCore.dll": {
+            "assemblyVersion": "2.1.6.0",
+            "fileVersion": "2.1.6.18298"
+          }
+        },
+        "compile": {
+          "lib/netstandard2.0/Microsoft.VisualStudio.Web.CodeGeneration.EntityFrameworkCore.dll": {}
+        }
+      },
+      "Microsoft.VisualStudio.Web.CodeGeneration.Templating/2.1.6": {
+        "dependencies": {
+          "Microsoft.AspNetCore.Razor.Language": "2.1.1",
+          "Microsoft.CodeAnalysis.CSharp": "2.8.0",
+          "Microsoft.VisualStudio.Web.CodeGeneration.Utils": "2.1.6"
+        },
+        "runtime": {
+          "lib/netstandard2.0/Microsoft.VisualStudio.Web.CodeGeneration.Templating.dll": {
+            "assemblyVersion": "2.1.6.0",
+            "fileVersion": "2.1.6.18298"
+          }
+        },
+        "compile": {
+          "lib/netstandard2.0/Microsoft.VisualStudio.Web.CodeGeneration.Templating.dll": {}
+        }
+      },
+      "Microsoft.VisualStudio.Web.CodeGeneration.Utils/2.1.6": {
+        "dependencies": {
+          "Microsoft.CodeAnalysis.CSharp.Workspaces": "2.8.0",
+          "Microsoft.VisualStudio.Web.CodeGeneration.Contracts": "2.1.6",
+          "Newtonsoft.Json": "11.0.2",
+          "NuGet.Frameworks": "4.7.0"
+        },
+        "runtime": {
+          "lib/netstandard2.0/Microsoft.VisualStudio.Web.CodeGeneration.Utils.dll": {
+            "assemblyVersion": "2.1.6.0",
+            "fileVersion": "2.1.6.18298"
+          }
+        },
+        "compile": {
+          "lib/netstandard2.0/Microsoft.VisualStudio.Web.CodeGeneration.Utils.dll": {}
+        }
+      },
+      "Microsoft.VisualStudio.Web.CodeGenerators.Mvc/2.1.6": {
+        "dependencies": {
+          "Microsoft.VisualStudio.Web.CodeGeneration": "2.1.6"
+        },
+        "runtime": {
+          "lib/netstandard2.0/Microsoft.VisualStudio.Web.CodeGenerators.Mvc.dll": {
+            "assemblyVersion": "2.1.6.0",
+            "fileVersion": "2.1.6.18298"
+          }
+        },
+        "compile": {
+          "lib/netstandard2.0/Microsoft.VisualStudio.Web.CodeGenerators.Mvc.dll": {}
+        }
+      },
       "NETStandard.Library/2.0.3": {
         "dependencies": {
           "Microsoft.NETCore.Platforms": "2.1.0"
         }
       },
+      "NuGet.Frameworks/4.7.0": {
+        "dependencies": {
+          "NETStandard.Library": "2.0.3"
+        },
+        "runtime": {
+          "lib/netstandard1.6/NuGet.Frameworks.dll": {
+            "assemblyVersion": "4.7.0.5",
+            "fileVersion": "4.7.0.5148"
+          }
+        },
+        "compile": {
+          "lib/netstandard1.6/NuGet.Frameworks.dll": {}
+        }
+      },
+      "Remotion.Linq/2.2.0": {
+        "dependencies": {
+          "System.Collections": "4.3.0",
+          "System.Diagnostics.Debug": "4.3.0",
+          "System.Linq": "4.3.0",
+          "System.Linq.Expressions": "4.3.0",
+          "System.Linq.Queryable": "4.0.1",
+          "System.ObjectModel": "4.3.0",
+          "System.Reflection": "4.3.0",
+          "System.Reflection.Extensions": "4.3.0",
+          "System.Runtime": "4.3.0",
+          "System.Runtime.Extensions": "4.3.0",
+          "System.Threading": "4.3.0"
+        },
+        "runtime": {
+          "lib/netstandard1.0/Remotion.Linq.dll": {
+            "assemblyVersion": "2.2.0.0",
+            "fileVersion": "2.2.0.30000"
+          }
+        },
+        "compile": {
+          "lib/netstandard1.0/Remotion.Linq.dll": {}
+        }
+      },
+      "SQLitePCLRaw.bundle_green/1.1.11": {
+        "dependencies": {
+          "SQLitePCLRaw.core": "1.1.11",
+          "SQLitePCLRaw.lib.e_sqlite3.linux": "1.1.11",
+          "SQLitePCLRaw.lib.e_sqlite3.osx": "1.1.11",
+          "SQLitePCLRaw.lib.e_sqlite3.v110_xp": "1.1.11",
+          "SQLitePCLRaw.provider.e_sqlite3.netstandard11": "1.1.11"
+        },
+        "runtime": {
+          "lib/netcoreapp/SQLitePCLRaw.batteries_green.dll": {
+            "assemblyVersion": "1.1.11.121",
+            "fileVersion": "1.0.0.0"
+          },
+          "lib/netcoreapp/SQLitePCLRaw.batteries_v2.dll": {
+            "assemblyVersion": "1.1.11.121",
+            "fileVersion": "1.0.0.0"
+          }
+        },
+        "compile": {
+          "lib/netcoreapp/SQLitePCLRaw.batteries_green.dll": {},
+          "lib/netcoreapp/SQLitePCLRaw.batteries_v2.dll": {}
+        }
+      },
+      "SQLitePCLRaw.core/1.1.11": {
+        "dependencies": {
+          "NETStandard.Library": "2.0.3"
+        },
+        "runtime": {
+          "lib/netstandard1.1/SQLitePCLRaw.core.dll": {
+            "assemblyVersion": "1.1.11.121",
+            "fileVersion": "1.0.0.0"
+          }
+        },
+        "compile": {
+          "lib/netstandard1.1/SQLitePCLRaw.core.dll": {}
+        }
+      },
+      "SQLitePCLRaw.lib.e_sqlite3.linux/1.1.11": {
+        "runtimeTargets": {
+          "runtimes/alpine-x64/native/libe_sqlite3.so": {
+            "rid": "alpine-x64",
+            "assetType": "native",
+            "fileVersion": "0.0.0.0"
+          },
+          "runtimes/linux-arm/native/libe_sqlite3.so": {
+            "rid": "linux-arm",
+            "assetType": "native",
+            "fileVersion": "0.0.0.0"
+          },
+          "runtimes/linux-arm64/native/libe_sqlite3.so": {
+            "rid": "linux-arm64",
+            "assetType": "native",
+            "fileVersion": "0.0.0.0"
+          },
+          "runtimes/linux-armel/native/libe_sqlite3.so": {
+            "rid": "linux-armel",
+            "assetType": "native",
+            "fileVersion": "0.0.0.0"
+          },
+          "runtimes/linux-musl-x64/native/libe_sqlite3.so": {
+            "rid": "linux-musl-x64",
+            "assetType": "native",
+            "fileVersion": "0.0.0.0"
+          },
+          "runtimes/linux-x64/native/libe_sqlite3.so": {
+            "rid": "linux-x64",
+            "assetType": "native",
+            "fileVersion": "0.0.0.0"
+          },
+          "runtimes/linux-x86/native/libe_sqlite3.so": {
+            "rid": "linux-x86",
+            "assetType": "native",
+            "fileVersion": "0.0.0.0"
+          }
+        }
+      },
+      "SQLitePCLRaw.lib.e_sqlite3.osx/1.1.11": {
+        "runtimeTargets": {
+          "runtimes/osx-x64/native/libe_sqlite3.dylib": {
+            "rid": "osx-x64",
+            "assetType": "native",
+            "fileVersion": "0.0.0.0"
+          }
+        }
+      },
+      "SQLitePCLRaw.lib.e_sqlite3.v110_xp/1.1.11": {
+        "runtimeTargets": {
+          "runtimes/win-x64/native/e_sqlite3.dll": {
+            "rid": "win-x64",
+            "assetType": "native",
+            "fileVersion": "0.0.0.0"
+          },
+          "runtimes/win-x86/native/e_sqlite3.dll": {
+            "rid": "win-x86",
+            "assetType": "native",
+            "fileVersion": "0.0.0.0"
+          },
+          "runtimes/win8-arm/native/e_sqlite3.dll": {
+            "rid": "win8-arm",
+            "assetType": "native",
+            "fileVersion": "0.0.0.0"
+          }
+        }
+      },
+      "SQLitePCLRaw.provider.e_sqlite3.netstandard11/1.1.11": {
+        "dependencies": {
+          "NETStandard.Library": "2.0.3",
+          "SQLitePCLRaw.core": "1.1.11"
+        },
+        "runtime": {
+          "lib/netstandard1.1/SQLitePCLRaw.provider.e_sqlite3.dll": {
+            "assemblyVersion": "1.1.11.121",
+            "fileVersion": "1.0.0.0"
+          }
+        },
+        "compile": {
+          "lib/netstandard1.1/SQLitePCLRaw.provider.e_sqlite3.dll": {}
+        }
+      },
+      "System.Collections.Immutable/1.5.0": {},
+      "System.ComponentModel/4.3.0": {
+        "dependencies": {
+          "System.Runtime": "4.3.0"
+        }
+      },
+      "System.ComponentModel.Primitives/4.3.0": {
+        "dependencies": {
+          "System.ComponentModel": "4.3.0",
+          "System.Resources.ResourceManager": "4.3.0",
+          "System.Runtime": "4.3.0"
+        }
+      },
+      "System.Composition/1.0.31": {
+        "dependencies": {
+          "System.Composition.AttributedModel": "1.0.31",
+          "System.Composition.Convention": "1.0.31",
+          "System.Composition.Hosting": "1.0.31",
+          "System.Composition.Runtime": "1.0.31",
+          "System.Composition.TypedParts": "1.0.31"
+        }
+      },
+      "System.Composition.AttributedModel/1.0.31": {
+        "dependencies": {
+          "System.Reflection": "4.3.0",
+          "System.Runtime": "4.3.0"
+        },
+        "runtime": {
+          "lib/netstandard1.0/System.Composition.AttributedModel.dll": {
+            "assemblyVersion": "1.0.31.0",
+            "fileVersion": "4.6.24705.1"
+          }
+        },
+        "compile": {
+          "lib/netstandard1.0/System.Composition.AttributedModel.dll": {}
+        }
+      },
+      "System.Composition.Convention/1.0.31": {
+        "dependencies": {
+          "System.Collections": "4.3.0",
+          "System.Composition.AttributedModel": "1.0.31",
+          "System.Diagnostics.Debug": "4.3.0",
+          "System.Diagnostics.Tools": "4.3.0",
+          "System.Globalization": "4.3.0",
+          "System.Linq": "4.3.0",
+          "System.Linq.Expressions": "4.3.0",
+          "System.Reflection": "4.3.0",
+          "System.Reflection.Extensions": "4.3.0",
+          "System.Resources.ResourceManager": "4.3.0",
+          "System.Runtime": "4.3.0",
+          "System.Threading": "4.3.0"
+        },
+        "runtime": {
+          "lib/netstandard1.0/System.Composition.Convention.dll": {
+            "assemblyVersion": "1.0.31.0",
+            "fileVersion": "4.6.24705.1"
+          }
+        },
+        "compile": {
+          "lib/netstandard1.0/System.Composition.Convention.dll": {}
+        }
+      },
+      "System.Composition.Hosting/1.0.31": {
+        "dependencies": {
+          "System.Collections": "4.3.0",
+          "System.Composition.Runtime": "1.0.31",
+          "System.Diagnostics.Debug": "4.3.0",
+          "System.Diagnostics.Tools": "4.3.0",
+          "System.Globalization": "4.3.0",
+          "System.Linq": "4.3.0",
+          "System.Linq.Expressions": "4.3.0",
+          "System.ObjectModel": "4.3.0",
+          "System.Reflection": "4.3.0",
+          "System.Reflection.Extensions": "4.3.0",
+          "System.Resources.ResourceManager": "4.3.0",
+          "System.Runtime": "4.3.0",
+          "System.Threading": "4.3.0"
+        },
+        "runtime": {
+          "lib/netstandard1.0/System.Composition.Hosting.dll": {
+            "assemblyVersion": "1.0.31.0",
+            "fileVersion": "4.6.24705.1"
+          }
+        },
+        "compile": {
+          "lib/netstandard1.0/System.Composition.Hosting.dll": {}
+        }
+      },
+      "System.Composition.Runtime/1.0.31": {
+        "dependencies": {
+          "System.Collections": "4.3.0",
+          "System.Diagnostics.Debug": "4.3.0",
+          "System.Diagnostics.Tools": "4.3.0",
+          "System.Globalization": "4.3.0",
+          "System.Linq": "4.3.0",
+          "System.Reflection": "4.3.0",
+          "System.Resources.ResourceManager": "4.3.0",
+          "System.Runtime": "4.3.0"
+        },
+        "runtime": {
+          "lib/netstandard1.0/System.Composition.Runtime.dll": {
+            "assemblyVersion": "1.0.31.0",
+            "fileVersion": "4.6.24705.1"
+          }
+        },
+        "compile": {
+          "lib/netstandard1.0/System.Composition.Runtime.dll": {}
+        }
+      },
+      "System.Composition.TypedParts/1.0.31": {
+        "dependencies": {
+          "System.Collections": "4.3.0",
+          "System.Composition.AttributedModel": "1.0.31",
+          "System.Composition.Hosting": "1.0.31",
+          "System.Composition.Runtime": "1.0.31",
+          "System.Diagnostics.Debug": "4.3.0",
+          "System.Diagnostics.Tools": "4.3.0",
+          "System.Globalization": "4.3.0",
+          "System.Linq": "4.3.0",
+          "System.Linq.Expressions": "4.3.0",
+          "System.Reflection": "4.3.0",
+          "System.Reflection.Extensions": "4.3.0",
+          "System.Resources.ResourceManager": "4.3.0",
+          "System.Runtime": "4.3.0",
+          "System.Runtime.Extensions": "4.3.0"
+        },
+        "runtime": {
+          "lib/netstandard1.0/System.Composition.TypedParts.dll": {
+            "assemblyVersion": "1.0.31.0",
+            "fileVersion": "4.6.24705.1"
+          }
+        },
+        "compile": {
+          "lib/netstandard1.0/System.Composition.TypedParts.dll": {}
+        }
+      },
+      "System.Data.SQLite/1.0.109.2": {
+        "dependencies": {
+          "System.Data.SQLite.Core": "1.0.109.2"
+        }
+      },
+      "System.Data.SQLite.Core/1.0.109.2": {
+        "runtime": {
+          "lib/netstandard2.0/System.Data.SQLite.dll": {
+            "assemblyVersion": "1.0.109.0",
+            "fileVersion": "1.0.109.0"
+          }
+        },
+        "runtimeTargets": {
+          "runtimes/linux-x64/native/netstandard2.0/SQLite.Interop.dll": {
+            "rid": "linux-x64",
+            "assetType": "native",
+            "fileVersion": "0.0.0.0"
+          },
+          "runtimes/osx-x64/native/netstandard2.0/SQLite.Interop.dll": {
+            "rid": "osx-x64",
+            "assetType": "native",
+            "fileVersion": "0.0.0.0"
+          },
+          "runtimes/win-x64/native/netstandard2.0/SQLite.Interop.dll": {
+            "rid": "win-x64",
+            "assetType": "native",
+            "fileVersion": "1.0.109.0"
+          },
+          "runtimes/win-x86/native/netstandard2.0/SQLite.Interop.dll": {
+            "rid": "win-x86",
+            "assetType": "native",
+            "fileVersion": "1.0.109.0"
+          }
+        },
+        "compile": {
+          "lib/netstandard2.0/System.Data.SQLite.dll": {}
+        }
+      },
+      "System.Diagnostics.DiagnosticSource/4.5.1": {
+        "runtime": {
+          "lib/netstandard1.3/System.Diagnostics.DiagnosticSource.dll": {
+            "assemblyVersion": "4.0.3.1",
+            "fileVersion": "4.6.26919.2"
+          }
+        },
+        "compile": {
+          "lib/netstandard1.3/System.Diagnostics.DiagnosticSource.dll": {}
+        }
+      },
+      "System.Interactive.Async/3.1.1": {
+        "dependencies": {
+          "NETStandard.Library": "2.0.3"
+        },
+        "runtime": {
+          "lib/netstandard1.3/System.Interactive.Async.dll": {
+            "assemblyVersion": "3.0.3000.0",
+            "fileVersion": "3.1.1.0"
+          }
+        },
+        "compile": {
+          "lib/netstandard1.3/System.Interactive.Async.dll": {}
+        }
+      },
+      "System.Linq.Parallel/4.3.0": {
+        "dependencies": {
+          "System.Collections": "4.3.0",
+          "System.Collections.Concurrent": "4.3.0",
+          "System.Diagnostics.Debug": "4.3.0",
+          "System.Diagnostics.Tracing": "4.3.0",
+          "System.Linq": "4.3.0",
+          "System.Resources.ResourceManager": "4.3.0",
+          "System.Runtime": "4.3.0",
+          "System.Runtime.Extensions": "4.3.0",
+          "System.Threading": "4.3.0",
+          "System.Threading.Tasks": "4.3.0"
+        }
+      },
+      "System.Linq.Queryable/4.0.1": {
+        "dependencies": {
+          "System.Collections": "4.3.0",
+          "System.Diagnostics.Debug": "4.3.0",
+          "System.Linq": "4.3.0",
+          "System.Linq.Expressions": "4.3.0",
+          "System.Reflection": "4.3.0",
+          "System.Reflection.Extensions": "4.3.0",
+          "System.Resources.ResourceManager": "4.3.0",
+          "System.Runtime": "4.3.0"
+        }
+      },
+      "System.ValueTuple/4.5.0": {},
       "Microsoft.AspNet.WebApi.Client/5.2.6": {
         "dependencies": {
           "Newtonsoft.Json": "11.0.2",
@@ -350,12 +1039,12 @@
           "Microsoft.AspNetCore.WebSockets": "2.1.1",
           "Microsoft.AspNetCore.WebUtilities": "2.1.1",
           "Microsoft.CodeAnalysis.Razor": "2.1.1",
-          "Microsoft.EntityFrameworkCore": "2.1.1",
-          "Microsoft.EntityFrameworkCore.Abstractions": "2.1.1",
-          "Microsoft.EntityFrameworkCore.Analyzers": "2.1.1",
+          "Microsoft.EntityFrameworkCore": "2.1.4",
+          "Microsoft.EntityFrameworkCore.Abstractions": "2.1.4",
+          "Microsoft.EntityFrameworkCore.Analyzers": "2.1.4",
           "Microsoft.EntityFrameworkCore.Design": "2.1.1",
           "Microsoft.EntityFrameworkCore.InMemory": "2.1.1",
-          "Microsoft.EntityFrameworkCore.Relational": "2.1.1",
+          "Microsoft.EntityFrameworkCore.Relational": "2.1.4",
           "Microsoft.EntityFrameworkCore.SqlServer": "2.1.1",
           "Microsoft.EntityFrameworkCore.Tools": "2.1.1",
           "Microsoft.Extensions.Caching.Abstractions": "2.1.1",
@@ -637,7 +1326,7 @@
           "Microsoft.Extensions.FileProviders.Physical": "2.1.1",
           "Microsoft.Extensions.Logging.Abstractions": "2.1.1",
           "Microsoft.Extensions.Options": "2.1.1",
-          "System.Diagnostics.DiagnosticSource": "4.5.0",
+          "System.Diagnostics.DiagnosticSource": "4.5.1",
           "System.Reflection.Metadata": "1.6.0"
         },
         "compile": {
@@ -654,7 +1343,7 @@
       "Microsoft.AspNetCore.Diagnostics.EntityFrameworkCore/2.1.1": {
         "dependencies": {
           "Microsoft.AspNetCore.Http.Abstractions": "2.1.1",
-          "Microsoft.EntityFrameworkCore.Relational": "2.1.1"
+          "Microsoft.EntityFrameworkCore.Relational": "2.1.4"
         },
         "compile": {
           "lib/netstandard2.0/Microsoft.AspNetCore.Diagnostics.EntityFrameworkCore.dll": {}
@@ -686,7 +1375,7 @@
           "Microsoft.Extensions.Hosting.Abstractions": "2.1.1",
           "Microsoft.Extensions.Logging": "2.1.1",
           "Microsoft.Extensions.Options": "2.1.1",
-          "System.Diagnostics.DiagnosticSource": "4.5.0",
+          "System.Diagnostics.DiagnosticSource": "4.5.1",
           "System.Reflection.Metadata": "1.6.0"
         },
         "compile": {
@@ -833,7 +1522,7 @@
       "Microsoft.AspNetCore.Identity.EntityFrameworkCore/2.1.1": {
         "dependencies": {
           "Microsoft.AspNetCore.Identity": "2.1.1",
-          "Microsoft.EntityFrameworkCore.Relational": "2.1.1",
+          "Microsoft.EntityFrameworkCore.Relational": "2.1.4",
           "Microsoft.Extensions.Identity.Stores": "2.1.1"
         },
         "compile": {
@@ -891,7 +1580,7 @@
         "dependencies": {
           "Microsoft.AspNetCore.Hosting.Abstractions": "2.1.1",
           "Microsoft.Extensions.DependencyInjection.Abstractions": "2.1.1",
-          "System.Diagnostics.DiagnosticSource": "4.5.0"
+          "System.Diagnostics.DiagnosticSource": "4.5.1"
         },
         "compile": {
           "lib/netstandard2.0/Microsoft.AspNetCore.MiddlewareAnalysis.dll": {}
@@ -954,7 +1643,7 @@
           "Microsoft.Extensions.DependencyModel": "2.1.0",
           "Microsoft.Extensions.FileProviders.Abstractions": "2.1.1",
           "Microsoft.Extensions.Logging.Abstractions": "2.1.1",
-          "System.Diagnostics.DiagnosticSource": "4.5.0",
+          "System.Diagnostics.DiagnosticSource": "4.5.1",
           "System.Threading.Tasks.Extensions": "4.5.1"
         },
         "compile": {
@@ -1450,7 +2139,7 @@
           "System.Threading.Tasks": "4.3.0",
           "System.Threading.Tasks.Parallel": "4.3.0",
           "System.Threading.Thread": "4.3.0",
-          "System.ValueTuple": "4.3.0",
+          "System.ValueTuple": "4.5.0",
           "System.Xml.ReaderWriter": "4.3.0",
           "System.Xml.XDocument": "4.3.0",
           "System.Xml.XPath.XDocument": "4.3.0",
@@ -1500,37 +2189,10 @@
         },
         "compileOnly": true
       },
-      "Microsoft.EntityFrameworkCore/2.1.1": {
-        "dependencies": {
-          "Microsoft.EntityFrameworkCore.Abstractions": "2.1.1",
-          "Microsoft.EntityFrameworkCore.Analyzers": "2.1.1",
-          "Microsoft.Extensions.Caching.Memory": "2.1.1",
-          "Microsoft.Extensions.DependencyInjection": "2.1.1",
-          "Microsoft.Extensions.Logging": "2.1.1",
-          "Remotion.Linq": "2.2.0",
-          "System.Collections.Immutable": "1.5.0",
-          "System.ComponentModel.Annotations": "4.5.0",
-          "System.Diagnostics.DiagnosticSource": "4.5.0",
-          "System.Interactive.Async": "3.1.1"
-        },
-        "compile": {
-          "lib/netstandard2.0/Microsoft.EntityFrameworkCore.dll": {}
-        },
-        "compileOnly": true
-      },
-      "Microsoft.EntityFrameworkCore.Abstractions/2.1.1": {
-        "compile": {
-          "lib/netstandard2.0/Microsoft.EntityFrameworkCore.Abstractions.dll": {}
-        },
-        "compileOnly": true
-      },
-      "Microsoft.EntityFrameworkCore.Analyzers/2.1.1": {
-        "compileOnly": true
-      },
       "Microsoft.EntityFrameworkCore.Design/2.1.1": {
         "dependencies": {
           "Microsoft.CSharp": "4.5.0",
-          "Microsoft.EntityFrameworkCore.Relational": "2.1.1"
+          "Microsoft.EntityFrameworkCore.Relational": "2.1.4"
         },
         "compile": {
           "lib/netstandard2.0/Microsoft.EntityFrameworkCore.Design.dll": {}
@@ -1539,25 +2201,16 @@
       },
       "Microsoft.EntityFrameworkCore.InMemory/2.1.1": {
         "dependencies": {
-          "Microsoft.EntityFrameworkCore": "2.1.1"
+          "Microsoft.EntityFrameworkCore": "2.1.4"
         },
         "compile": {
           "lib/netstandard2.0/Microsoft.EntityFrameworkCore.InMemory.dll": {}
         },
         "compileOnly": true
       },
-      "Microsoft.EntityFrameworkCore.Relational/2.1.1": {
-        "dependencies": {
-          "Microsoft.EntityFrameworkCore": "2.1.1"
-        },
-        "compile": {
-          "lib/netstandard2.0/Microsoft.EntityFrameworkCore.Relational.dll": {}
-        },
-        "compileOnly": true
-      },
       "Microsoft.EntityFrameworkCore.SqlServer/2.1.1": {
         "dependencies": {
-          "Microsoft.EntityFrameworkCore.Relational": "2.1.1",
+          "Microsoft.EntityFrameworkCore.Relational": "2.1.4",
           "System.Data.SqlClient": "4.5.1"
         },
         "compile": {
@@ -1738,7 +2391,7 @@
       },
       "Microsoft.Extensions.DiagnosticAdapter/2.1.0": {
         "dependencies": {
-          "System.Diagnostics.DiagnosticSource": "4.5.0"
+          "System.Diagnostics.DiagnosticSource": "4.5.1"
         },
         "compile": {
           "lib/netcoreapp2.0/Microsoft.Extensions.DiagnosticAdapter.dll": {}
@@ -2114,25 +2767,6 @@
         },
         "compileOnly": true
       },
-      "Remotion.Linq/2.2.0": {
-        "dependencies": {
-          "System.Collections": "4.3.0",
-          "System.Diagnostics.Debug": "4.3.0",
-          "System.Linq": "4.3.0",
-          "System.Linq.Expressions": "4.3.0",
-          "System.Linq.Queryable": "4.0.1",
-          "System.ObjectModel": "4.3.0",
-          "System.Reflection": "4.3.0",
-          "System.Reflection.Extensions": "4.3.0",
-          "System.Runtime": "4.3.0",
-          "System.Runtime.Extensions": "4.3.0",
-          "System.Threading": "4.3.0"
-        },
-        "compile": {
-          "lib/netstandard1.0/Remotion.Linq.dll": {}
-        },
-        "compileOnly": true
-      },
       "runtime.debian.8-x64.runtime.native.System.Security.Cryptography.OpenSsl/4.3.0": {
         "compileOnly": true
       },
@@ -2257,9 +2891,6 @@
         },
         "compileOnly": true
       },
-      "System.Collections.Immutable/1.5.0": {
-        "compileOnly": true
-      },
       "System.Collections.NonGeneric/4.3.0": {
         "dependencies": {
           "System.Diagnostics.Debug": "4.3.0",
@@ -2320,9 +2951,6 @@
           "Microsoft.NETCore.Targets": "2.1.0",
           "System.Runtime": "4.3.0"
         },
-        "compileOnly": true
-      },
-      "System.Diagnostics.DiagnosticSource/4.5.0": {
         "compileOnly": true
       },
       "System.Diagnostics.FileVersionInfo/4.3.0": {
@@ -2422,15 +3050,6 @@
         },
         "compileOnly": true
       },
-      "System.Interactive.Async/3.1.1": {
-        "dependencies": {
-          "NETStandard.Library": "2.0.3"
-        },
-        "compile": {
-          "lib/netstandard1.3/System.Interactive.Async.dll": {}
-        },
-        "compileOnly": true
-      },
       "System.IO/4.3.0": {
         "dependencies": {
           "Microsoft.NETCore.Platforms": "2.1.0",
@@ -2518,19 +3137,6 @@
         },
         "compileOnly": true
       },
-      "System.Linq.Queryable/4.0.1": {
-        "dependencies": {
-          "System.Collections": "4.3.0",
-          "System.Diagnostics.Debug": "4.3.0",
-          "System.Linq": "4.3.0",
-          "System.Linq.Expressions": "4.3.0",
-          "System.Reflection": "4.3.0",
-          "System.Reflection.Extensions": "4.3.0",
-          "System.Resources.ResourceManager": "4.3.0",
-          "System.Runtime": "4.3.0"
-        },
-        "compileOnly": true
-      },
       "System.Memory/4.5.1": {
         "compileOnly": true
       },
@@ -2539,7 +3145,7 @@
           "Microsoft.NETCore.Platforms": "2.1.0",
           "System.Collections": "4.3.0",
           "System.Diagnostics.Debug": "4.3.0",
-          "System.Diagnostics.DiagnosticSource": "4.5.0",
+          "System.Diagnostics.DiagnosticSource": "4.5.1",
           "System.Diagnostics.Tracing": "4.3.0",
           "System.Globalization": "4.3.0",
           "System.Globalization.Extensions": "4.3.0",
@@ -3037,14 +3643,6 @@
         },
         "compileOnly": true
       },
-      "System.ValueTuple/4.3.0": {
-        "dependencies": {
-          "System.Collections": "4.3.0",
-          "System.Resources.ResourceManager": "4.3.0",
-          "System.Runtime": "4.3.0"
-        },
-        "compileOnly": true
-      },
       "System.Xml.ReaderWriter/4.3.0": {
         "dependencies": {
           "System.Collections": "4.3.0",
@@ -3155,12 +3753,103 @@
       "serviceable": false,
       "sha512": ""
     },
+    "FluentValidation/8.0.101": {
+      "type": "package",
+      "serviceable": true,
+      "sha512": "sha512-r7GADkwShbQsGyLDYsMZQx2KS5e79qLkQ4VfbCnjcpAjI8LujP73sx8FITD5gV49QsKJ5ME0D4M4i0mcyVS9nw==",
+      "path": "fluentvalidation/8.0.101",
+      "hashPath": "fluentvalidation.8.0.101.nupkg.sha512"
+    },
+    "FluentValidation.AspNetCore/8.0.101": {
+      "type": "package",
+      "serviceable": true,
+      "sha512": "sha512-n8qutaka9IKkwr/SdehKvR1aoyMhcTNkz0BjFqADm5/8YOM3Zm1tp1zGZgS7LwPABTy0jn3MNu2m96SolmjonA==",
+      "path": "fluentvalidation.aspnetcore/8.0.101",
+      "hashPath": "fluentvalidation.aspnetcore.8.0.101.nupkg.sha512"
+    },
     "Microsoft.AspNetCore.Razor.Design/2.1.2": {
       "type": "package",
       "serviceable": true,
       "sha512": "sha512-ab4+TZw3Sxqrr5TwrwVyABeQkhSxYMJXgG6yZw7T+r6Vz+hcOt+pK79o15ESG7kZvWAK9wRG7emnTIia5O6R1Q==",
       "path": "microsoft.aspnetcore.razor.design/2.1.2",
       "hashPath": "microsoft.aspnetcore.razor.design.2.1.2.nupkg.sha512"
+    },
+    "Microsoft.CodeAnalysis.CSharp.Workspaces/2.8.0": {
+      "type": "package",
+      "serviceable": true,
+      "sha512": "sha512-4JcQJNDSyGXtz9ccBzSBmcPmKg7GiL4LYvtv+YG8C9waNP/xhwuvIycSQOF4a0V+J73JwUopA503O7vb8p5ZUQ==",
+      "path": "microsoft.codeanalysis.csharp.workspaces/2.8.0",
+      "hashPath": "microsoft.codeanalysis.csharp.workspaces.2.8.0.nupkg.sha512"
+    },
+    "Microsoft.CodeAnalysis.Workspaces.Common/2.8.0": {
+      "type": "package",
+      "serviceable": true,
+      "sha512": "sha512-AqCiNju6UZy9Sd8HKzxGbpbZf+P8gWpojfvs9hIRfwstqFMZ6OJXf69EUvqJ5C4rWrcf08F7G8WII74KBEFImQ==",
+      "path": "microsoft.codeanalysis.workspaces.common/2.8.0",
+      "hashPath": "microsoft.codeanalysis.workspaces.common.2.8.0.nupkg.sha512"
+    },
+    "Microsoft.Data.Sqlite.Core/2.1.0": {
+      "type": "package",
+      "serviceable": true,
+      "sha512": "sha512-OzFBXsbsjkNLqClNyBA8ldv3oLYK37JxP2c83xVe7UcxU2KvvqQy+VvQg97rEcMsZPgS4t3pTAv4W7xwaoYuug==",
+      "path": "microsoft.data.sqlite.core/2.1.0",
+      "hashPath": "microsoft.data.sqlite.core.2.1.0.nupkg.sha512"
+    },
+    "Microsoft.EntityFrameworkCore/2.1.4": {
+      "type": "package",
+      "serviceable": true,
+      "sha512": "sha512-72l8hbaJ5cXxZLCFeo46MDnvU8XJiDRNh1YQPzAlqVAlQrUwSVojYbJyOE7vbWqsb8rRqQYJ6NsmgPdUv/NKzw==",
+      "path": "microsoft.entityframeworkcore/2.1.4",
+      "hashPath": "microsoft.entityframeworkcore.2.1.4.nupkg.sha512"
+    },
+    "Microsoft.EntityFrameworkCore.Abstractions/2.1.4": {
+      "type": "package",
+      "serviceable": true,
+      "sha512": "sha512-5Vc1zdCq7p+E/8ndJnTKHebJeqSC/1gb4hXDPi7UHdqURAxWl3lZV5+79x/dSfO/P6n/sEz5fURYGOMDoreXUA==",
+      "path": "microsoft.entityframeworkcore.abstractions/2.1.4",
+      "hashPath": "microsoft.entityframeworkcore.abstractions.2.1.4.nupkg.sha512"
+    },
+    "Microsoft.EntityFrameworkCore.Analyzers/2.1.4": {
+      "type": "package",
+      "serviceable": true,
+      "sha512": "sha512-cYjXickepORM4UmNdqdZ3l74xhG5OHWMDxsFlqHJGm0qxLAHv5GAI2dKkkGslrjyaPYnfRW3JhAWubBWBt0XUg==",
+      "path": "microsoft.entityframeworkcore.analyzers/2.1.4",
+      "hashPath": "microsoft.entityframeworkcore.analyzers.2.1.4.nupkg.sha512"
+    },
+    "Microsoft.EntityFrameworkCore.Relational/2.1.4": {
+      "type": "package",
+      "serviceable": true,
+      "sha512": "sha512-cn/sEABCjVEp+Ji8LaDjGc7kjD2fJ9y46GL7rTnP1imWmdEYr3eL1oTNKOukMCNwjEGf1pZid0f0LKXaWBGbHw==",
+      "path": "microsoft.entityframeworkcore.relational/2.1.4",
+      "hashPath": "microsoft.entityframeworkcore.relational.2.1.4.nupkg.sha512"
+    },
+    "Microsoft.EntityFrameworkCore.Relational.Design/1.1.6": {
+      "type": "package",
+      "serviceable": true,
+      "sha512": "sha512-UVq94HrsK/eUSo4bkYBYW30UQ/uH2GoXcjTv7oIdeMKnAjLE3jm3C/BmftkQpr9beQCSbbcEySaVDhjlhrcQJQ==",
+      "path": "microsoft.entityframeworkcore.relational.design/1.1.6",
+      "hashPath": "microsoft.entityframeworkcore.relational.design.1.1.6.nupkg.sha512"
+    },
+    "Microsoft.EntityFrameworkCore.Sqlite/2.1.4": {
+      "type": "package",
+      "serviceable": true,
+      "sha512": "sha512-mY93We4zTw3nAUaJ8VUMk2iVYV/yAg5kmzw3ew9Nv7VSrlix9yVPz1/kZZ680sCDY3cpSTB5R5gn+3+UrZCGlA==",
+      "path": "microsoft.entityframeworkcore.sqlite/2.1.4",
+      "hashPath": "microsoft.entityframeworkcore.sqlite.2.1.4.nupkg.sha512"
+    },
+    "Microsoft.EntityFrameworkCore.Sqlite.Core/2.1.4": {
+      "type": "package",
+      "serviceable": true,
+      "sha512": "sha512-fDNobKc1Ffb3z56ckiWJ7J64pbVDBNiX5XdGGygr7GbwY/rG541NRTX8kXOSvkUZ2qNgAYDqAYjUTYMmzBnRCw==",
+      "path": "microsoft.entityframeworkcore.sqlite.core/2.1.4",
+      "hashPath": "microsoft.entityframeworkcore.sqlite.core.2.1.4.nupkg.sha512"
+    },
+    "Microsoft.EntityFrameworkCore.Sqlite.Design/1.1.6": {
+      "type": "package",
+      "serviceable": true,
+      "sha512": "sha512-uWBy0RXUs3p7XPbj2xsN6NpAsB9UWw6FdgoM31lYYQfZkB2DOV5l5YiTKi1qxIhVzab9ZN2I96uNY2IKvqIwpA==",
+      "path": "microsoft.entityframeworkcore.sqlite.design/1.1.6",
+      "hashPath": "microsoft.entityframeworkcore.sqlite.design.1.1.6.nupkg.sha512"
     },
     "Microsoft.NETCore.App/2.1.0": {
       "type": "package",
@@ -3204,12 +3893,236 @@
       "path": "microsoft.netcore.targets/2.1.0",
       "hashPath": "microsoft.netcore.targets.2.1.0.nupkg.sha512"
     },
+    "Microsoft.VisualStudio.Web.CodeGeneration/2.1.6": {
+      "type": "package",
+      "serviceable": true,
+      "sha512": "sha512-1yZNKeV7IdmE6d99v0KNB7uOyJC+yy+3dcVEZa0oXfejLFfc8NZOEnmm2PaMa1Y0A7jGIxZlzlh/K85QtKBn4Q==",
+      "path": "microsoft.visualstudio.web.codegeneration/2.1.6",
+      "hashPath": "microsoft.visualstudio.web.codegeneration.2.1.6.nupkg.sha512"
+    },
+    "Microsoft.VisualStudio.Web.CodeGeneration.Contracts/2.1.6": {
+      "type": "package",
+      "serviceable": true,
+      "sha512": "sha512-GtOK5XgMhihrDni5i6of/0PGEnIcBhv5+7Qau8+egstwH2XfjF+HLV+Y/rfC9XJY/S3IekrSkfsQaZq6H6QNcA==",
+      "path": "microsoft.visualstudio.web.codegeneration.contracts/2.1.6",
+      "hashPath": "microsoft.visualstudio.web.codegeneration.contracts.2.1.6.nupkg.sha512"
+    },
+    "Microsoft.VisualStudio.Web.CodeGeneration.Core/2.1.6": {
+      "type": "package",
+      "serviceable": true,
+      "sha512": "sha512-WDBhIE71nayQEJgYe2R3gNutaBltQZsUxgsGsrOPJcUQGF8jLBgjgKfFExwnlhIX3UC0P6aTVkbfHSSRMYX8tg==",
+      "path": "microsoft.visualstudio.web.codegeneration.core/2.1.6",
+      "hashPath": "microsoft.visualstudio.web.codegeneration.core.2.1.6.nupkg.sha512"
+    },
+    "Microsoft.VisualStudio.Web.CodeGeneration.Design/2.1.6": {
+      "type": "package",
+      "serviceable": true,
+      "sha512": "sha512-yMcDCrOxBo0HzTLEfKG2UZcm2e+rqUJ8QEmdpNn6p8efZFfVqRYN3t0hIE/CgpmVJZk4qkQGunclMcAwwNKu9g==",
+      "path": "microsoft.visualstudio.web.codegeneration.design/2.1.6",
+      "hashPath": "microsoft.visualstudio.web.codegeneration.design.2.1.6.nupkg.sha512"
+    },
+    "Microsoft.VisualStudio.Web.CodeGeneration.EntityFrameworkCore/2.1.6": {
+      "type": "package",
+      "serviceable": true,
+      "sha512": "sha512-ykwvX82RNWnvDS4dOYCAR1pff2Yfi+P+oi2IZDzHwiiuGvMtw02j+8tcTXN9D+Cj2ra4rZmemZTYkbhYClPN4g==",
+      "path": "microsoft.visualstudio.web.codegeneration.entityframeworkcore/2.1.6",
+      "hashPath": "microsoft.visualstudio.web.codegeneration.entityframeworkcore.2.1.6.nupkg.sha512"
+    },
+    "Microsoft.VisualStudio.Web.CodeGeneration.Templating/2.1.6": {
+      "type": "package",
+      "serviceable": true,
+      "sha512": "sha512-UeSMEttk/xDxlWCOGyGtEmAdr7/xfI5SXZqg+63r6FX1xDY6C4E2TR+tzuLslAjgbh70C2QRrnOCKGVd+udOrg==",
+      "path": "microsoft.visualstudio.web.codegeneration.templating/2.1.6",
+      "hashPath": "microsoft.visualstudio.web.codegeneration.templating.2.1.6.nupkg.sha512"
+    },
+    "Microsoft.VisualStudio.Web.CodeGeneration.Utils/2.1.6": {
+      "type": "package",
+      "serviceable": true,
+      "sha512": "sha512-0S9tdtw4M+QQSL0UHux1e+uHnkFDv1kYm7DZGIlNevh07lG8u3iah4Fw2T190CZ+yv8cDw/nDTVcSZmxpICXVg==",
+      "path": "microsoft.visualstudio.web.codegeneration.utils/2.1.6",
+      "hashPath": "microsoft.visualstudio.web.codegeneration.utils.2.1.6.nupkg.sha512"
+    },
+    "Microsoft.VisualStudio.Web.CodeGenerators.Mvc/2.1.6": {
+      "type": "package",
+      "serviceable": true,
+      "sha512": "sha512-afw8BL6XcCeVjIlExUmaSh/zuPzmCqmgYvcQ2x7e+kO+BR8X4Kp/JGqq9mnw2Ivh4Ii/YSU0KTWRLzhEvC0jxQ==",
+      "path": "microsoft.visualstudio.web.codegenerators.mvc/2.1.6",
+      "hashPath": "microsoft.visualstudio.web.codegenerators.mvc.2.1.6.nupkg.sha512"
+    },
     "NETStandard.Library/2.0.3": {
       "type": "package",
       "serviceable": true,
       "sha512": "sha512-st47PosZSHrjECdjeIzZQbzivYBJFv6P2nv4cj2ypdI204DO+vZ7l5raGMiX4eXMJ53RfOIg+/s4DHVZ54Nu2A==",
       "path": "netstandard.library/2.0.3",
       "hashPath": "netstandard.library.2.0.3.nupkg.sha512"
+    },
+    "NuGet.Frameworks/4.7.0": {
+      "type": "package",
+      "serviceable": true,
+      "sha512": "sha512-KuqDbPzjOWbUM6gPMbkvdhlQ10roQAoMM7mNZ8hcY/fH+9J4Zc+qT8dLWoNzGyr0OrxQVdZdbSjy/fxwoICgGg==",
+      "path": "nuget.frameworks/4.7.0",
+      "hashPath": "nuget.frameworks.4.7.0.nupkg.sha512"
+    },
+    "Remotion.Linq/2.2.0": {
+      "type": "package",
+      "serviceable": true,
+      "sha512": "sha512-twDAH8dAXXCAf3sRv1Tf94u66eEHvgU75hfn1nn2v4fSWXD50XoDOAk8WpSrbViNuMkB4kN1ElnOGm1c519IHg==",
+      "path": "remotion.linq/2.2.0",
+      "hashPath": "remotion.linq.2.2.0.nupkg.sha512"
+    },
+    "SQLitePCLRaw.bundle_green/1.1.11": {
+      "type": "package",
+      "serviceable": true,
+      "sha512": "sha512-HOD1/Jg9VZtrOyPUCD9reQOXHq4r+fNe24qw5nghuiUcKch+9jePeRpt6MqGGUFhg2KW89KvE/RFlhpbfF8pKA==",
+      "path": "sqlitepclraw.bundle_green/1.1.11",
+      "hashPath": "sqlitepclraw.bundle_green.1.1.11.nupkg.sha512"
+    },
+    "SQLitePCLRaw.core/1.1.11": {
+      "type": "package",
+      "serviceable": true,
+      "sha512": "sha512-bWiOso10I1vDuc5rbzT69LQT0+oXfYnoqx8vKJ8zim/CJ4ytSd20QNTE/FE0dvWEgXGnvDp7gGJFu6PeWnhx9g==",
+      "path": "sqlitepclraw.core/1.1.11",
+      "hashPath": "sqlitepclraw.core.1.1.11.nupkg.sha512"
+    },
+    "SQLitePCLRaw.lib.e_sqlite3.linux/1.1.11": {
+      "type": "package",
+      "serviceable": true,
+      "sha512": "sha512-x5nuN19UdLgPKcP94lTuVSDTosDGIU3HAMmozd0VoLY5/dCgSl2Ru41Tz44IsAW33ylftboQlnVhahCtVR+3AA==",
+      "path": "sqlitepclraw.lib.e_sqlite3.linux/1.1.11",
+      "hashPath": "sqlitepclraw.lib.e_sqlite3.linux.1.1.11.nupkg.sha512"
+    },
+    "SQLitePCLRaw.lib.e_sqlite3.osx/1.1.11": {
+      "type": "package",
+      "serviceable": true,
+      "sha512": "sha512-mjLRS9qb8JnKKHdowd3bSlOnEGSgGuXREBXHU8xecUlMCLoKMj7XEg7EDQeeu89aYGtSegLY95BRHnA9p0+q2g==",
+      "path": "sqlitepclraw.lib.e_sqlite3.osx/1.1.11",
+      "hashPath": "sqlitepclraw.lib.e_sqlite3.osx.1.1.11.nupkg.sha512"
+    },
+    "SQLitePCLRaw.lib.e_sqlite3.v110_xp/1.1.11": {
+      "type": "package",
+      "serviceable": true,
+      "sha512": "sha512-JvtHjNrd/est9wJitEiWx1O08XqBm4/l3Lhf01cFf9cIoNxhI+/idcYLMKS4XhewgaSHpuB1/Pi1W6VRjXrmIg==",
+      "path": "sqlitepclraw.lib.e_sqlite3.v110_xp/1.1.11",
+      "hashPath": "sqlitepclraw.lib.e_sqlite3.v110_xp.1.1.11.nupkg.sha512"
+    },
+    "SQLitePCLRaw.provider.e_sqlite3.netstandard11/1.1.11": {
+      "type": "package",
+      "serviceable": true,
+      "sha512": "sha512-fvDbTA/2+A3sfLlXYXOHKIFP/ZcL8yQJnr+VxwyCy2BPK2jLZg3XXStc1AokU5uC+dCDl5k3bpCiBdqYU1bz6g==",
+      "path": "sqlitepclraw.provider.e_sqlite3.netstandard11/1.1.11",
+      "hashPath": "sqlitepclraw.provider.e_sqlite3.netstandard11.1.1.11.nupkg.sha512"
+    },
+    "System.Collections.Immutable/1.5.0": {
+      "type": "package",
+      "serviceable": true,
+      "sha512": "sha512-RGxi2aQoXgZ5ge0zxrKqI4PU9LrYYoLC+cnEnWXKsSduCOUhE1GEAAoTexUVT8RZOILQyy1B27HC8Xw/XLGzdQ==",
+      "path": "system.collections.immutable/1.5.0",
+      "hashPath": "system.collections.immutable.1.5.0.nupkg.sha512"
+    },
+    "System.ComponentModel/4.3.0": {
+      "type": "package",
+      "serviceable": true,
+      "sha512": "sha512-VyGn1jGRZVfxnh8EdvDCi71v3bMXrsu8aYJOwoV7SNDLVhiEqwP86pPMyRGsDsxhXAm2b3o9OIqeETfN5qfezw==",
+      "path": "system.componentmodel/4.3.0",
+      "hashPath": "system.componentmodel.4.3.0.nupkg.sha512"
+    },
+    "System.ComponentModel.Primitives/4.3.0": {
+      "type": "package",
+      "serviceable": true,
+      "sha512": "sha512-j8GUkCpM8V4d4vhLIIoBLGey2Z5bCkMVNjEZseyAlm4n5arcsJOeI3zkUP+zvZgzsbLTYh4lYeP/ZD/gdIAPrw==",
+      "path": "system.componentmodel.primitives/4.3.0",
+      "hashPath": "system.componentmodel.primitives.4.3.0.nupkg.sha512"
+    },
+    "System.Composition/1.0.31": {
+      "type": "package",
+      "serviceable": true,
+      "sha512": "sha512-I+D26qpYdoklyAVUdqwUBrEIckMNjAYnuPJy/h9dsQItpQwVREkDFs4b4tkBza0kT2Yk48Lcfsv2QQ9hWsh9Iw==",
+      "path": "system.composition/1.0.31",
+      "hashPath": "system.composition.1.0.31.nupkg.sha512"
+    },
+    "System.Composition.AttributedModel/1.0.31": {
+      "type": "package",
+      "serviceable": true,
+      "sha512": "sha512-NHWhkM3ZkspmA0XJEsKdtTt1ViDYuojgSND3yHhTzwxepiwqZf+BCWuvCbjUt4fe0NxxQhUDGJ5km6sLjo9qnQ==",
+      "path": "system.composition.attributedmodel/1.0.31",
+      "hashPath": "system.composition.attributedmodel.1.0.31.nupkg.sha512"
+    },
+    "System.Composition.Convention/1.0.31": {
+      "type": "package",
+      "serviceable": true,
+      "sha512": "sha512-GLjh2Ju71k6C0qxMMtl4efHa68NmWeIUYh4fkUI8xbjQrEBvFmRwMDFcylT8/PR9SQbeeL48IkFxU/+gd0nYEQ==",
+      "path": "system.composition.convention/1.0.31",
+      "hashPath": "system.composition.convention.1.0.31.nupkg.sha512"
+    },
+    "System.Composition.Hosting/1.0.31": {
+      "type": "package",
+      "serviceable": true,
+      "sha512": "sha512-fN1bT4RX4vUqjbgoyuJFVUizAl2mYF5VAb+bVIxIYZSSc0BdnX+yGAxcavxJuDDCQ1K+/mdpgyEFc8e9ikjvrg==",
+      "path": "system.composition.hosting/1.0.31",
+      "hashPath": "system.composition.hosting.1.0.31.nupkg.sha512"
+    },
+    "System.Composition.Runtime/1.0.31": {
+      "type": "package",
+      "serviceable": true,
+      "sha512": "sha512-0LEJN+2NVM89CE4SekDrrk5tHV5LeATltkp+9WNYrR+Huiyt0vaCqHbbHtVAjPyeLWIc8dOz/3kthRBj32wGQg==",
+      "path": "system.composition.runtime/1.0.31",
+      "hashPath": "system.composition.runtime.1.0.31.nupkg.sha512"
+    },
+    "System.Composition.TypedParts/1.0.31": {
+      "type": "package",
+      "serviceable": true,
+      "sha512": "sha512-0Zae/FtzeFgDBBuILeIbC/T9HMYbW4olAmi8XqqAGosSOWvXfiQLfARZEhiGd0LVXaYgXr0NhxiU1LldRP1fpQ==",
+      "path": "system.composition.typedparts/1.0.31",
+      "hashPath": "system.composition.typedparts.1.0.31.nupkg.sha512"
+    },
+    "System.Data.SQLite/1.0.109.2": {
+      "type": "package",
+      "serviceable": true,
+      "sha512": "sha512-dsN3a0THLGDu1QDHGdhETU9rgr1tU0IOwnnOQHTR2huXU6HS/o/Nbq1Bol6jrLM3GqQrdNjPxVPZUPaYDRhT4Q==",
+      "path": "system.data.sqlite/1.0.109.2",
+      "hashPath": "system.data.sqlite.1.0.109.2.nupkg.sha512"
+    },
+    "System.Data.SQLite.Core/1.0.109.2": {
+      "type": "package",
+      "serviceable": true,
+      "sha512": "sha512-eZuKsu2eriGsxsAAlVslcA4ylLnFmfpA3iWeUyU82RNz4yDYlwLAA/zkbxejCEO+GdTd0zSBN4kDHneM39PEsg==",
+      "path": "system.data.sqlite.core/1.0.109.2",
+      "hashPath": "system.data.sqlite.core.1.0.109.2.nupkg.sha512"
+    },
+    "System.Diagnostics.DiagnosticSource/4.5.1": {
+      "type": "package",
+      "serviceable": true,
+      "sha512": "sha512-m86SgxAIi5j0iGzx2y1LrcMcopIYfinfcojyQ9CcNRy3MZvi0dVuDlMj2M7kV6MMGSunqZ+OnQ+rQbxWafFBaw==",
+      "path": "system.diagnostics.diagnosticsource/4.5.1",
+      "hashPath": "system.diagnostics.diagnosticsource.4.5.1.nupkg.sha512"
+    },
+    "System.Interactive.Async/3.1.1": {
+      "type": "package",
+      "serviceable": true,
+      "sha512": "sha512-x9y2omkjEudKbIVuhUzeWw7ZlouEzpk4W98woCEq1lq9gJxERBKRKDTHF5JPEws9E0f4/Uei/2vLxEy1IrfmMg==",
+      "path": "system.interactive.async/3.1.1",
+      "hashPath": "system.interactive.async.3.1.1.nupkg.sha512"
+    },
+    "System.Linq.Parallel/4.3.0": {
+      "type": "package",
+      "serviceable": true,
+      "sha512": "sha512-td7x21K8LalpjTWCzW/nQboQIFbq9i0r+PCyBBCdLWWnm4NBcdN18vpz/G9hCpUaCIfRL+ZxJNVTywlNlB1aLQ==",
+      "path": "system.linq.parallel/4.3.0",
+      "hashPath": "system.linq.parallel.4.3.0.nupkg.sha512"
+    },
+    "System.Linq.Queryable/4.0.1": {
+      "type": "package",
+      "serviceable": true,
+      "sha512": "sha512-Yn/WfYe9RoRfmSLvUt2JerP0BTGGykCZkQPgojaxgzF2N0oPo+/AhB8TXOpdCcNlrG3VRtsamtK2uzsp3cqRVw==",
+      "path": "system.linq.queryable/4.0.1",
+      "hashPath": "system.linq.queryable.4.0.1.nupkg.sha512"
+    },
+    "System.ValueTuple/4.5.0": {
+      "type": "package",
+      "serviceable": true,
+      "sha512": "sha512-fa3P1cPe2SlrjCjJ/yc3mcXkDj4GQORmileNFYBtBZh2qddzwRubagAkj8yz/yF9oLvJVqaZYar9l2SCqNKDJg==",
+      "path": "system.valuetuple/4.5.0",
+      "hashPath": "system.valuetuple.4.5.0.nupkg.sha512"
     },
     "Microsoft.AspNet.WebApi.Client/5.2.6": {
       "type": "package",
@@ -3904,27 +4817,6 @@
       "path": "microsoft.dotnet.platformabstractions/2.1.0",
       "hashPath": "microsoft.dotnet.platformabstractions.2.1.0.nupkg.sha512"
     },
-    "Microsoft.EntityFrameworkCore/2.1.1": {
-      "type": "package",
-      "serviceable": true,
-      "sha512": "sha512-R0zD5lDEA0Aari3+stBhAP5dredWIHcu4+tKfumG7Q6r34Psl5a3fC4hXOBD4W8Mc+aRaee3xehLQC0M0EHEdA==",
-      "path": "microsoft.entityframeworkcore/2.1.1",
-      "hashPath": "microsoft.entityframeworkcore.2.1.1.nupkg.sha512"
-    },
-    "Microsoft.EntityFrameworkCore.Abstractions/2.1.1": {
-      "type": "package",
-      "serviceable": true,
-      "sha512": "sha512-eAkWeRhvwMLbAmS73HUESlE/sRmGYdKr1nzZ/IOmyRFz37e8BGEGwwbazKhi2OjjzdIWJxmMdB4nGQUP2mco7A==",
-      "path": "microsoft.entityframeworkcore.abstractions/2.1.1",
-      "hashPath": "microsoft.entityframeworkcore.abstractions.2.1.1.nupkg.sha512"
-    },
-    "Microsoft.EntityFrameworkCore.Analyzers/2.1.1": {
-      "type": "package",
-      "serviceable": true,
-      "sha512": "sha512-Cvyj3q8j0vhhEBbxRXXTZZhrO0RW/hRJQ6VzfGcfvMh+Zhkr8Jl4CP8gA5GXOgg+0dxYYC+GfT27EqjbxM3Qbg==",
-      "path": "microsoft.entityframeworkcore.analyzers/2.1.1",
-      "hashPath": "microsoft.entityframeworkcore.analyzers.2.1.1.nupkg.sha512"
-    },
     "Microsoft.EntityFrameworkCore.Design/2.1.1": {
       "type": "package",
       "serviceable": true,
@@ -3938,13 +4830,6 @@
       "sha512": "sha512-eX6plbREvKOq06f2XU6n4ZCSpTXjS9khC9jNH4BeyG/m2WXbYnpTW3zX6RT/UCM8wVqO9U3YUr7QbTsuOysK7w==",
       "path": "microsoft.entityframeworkcore.inmemory/2.1.1",
       "hashPath": "microsoft.entityframeworkcore.inmemory.2.1.1.nupkg.sha512"
-    },
-    "Microsoft.EntityFrameworkCore.Relational/2.1.1": {
-      "type": "package",
-      "serviceable": true,
-      "sha512": "sha512-GdS22wCLqf+W+NvWzuz/0oXmulD0mlxa65Z/RO65YiAJRDhLZ/4/QYeDEIvh8HF9Fw4kB/UnrQ756uv0+IDDKQ==",
-      "path": "microsoft.entityframeworkcore.relational/2.1.1",
-      "hashPath": "microsoft.entityframeworkcore.relational.2.1.1.nupkg.sha512"
     },
     "Microsoft.EntityFrameworkCore.SqlServer/2.1.1": {
       "type": "package",
@@ -4331,13 +5216,6 @@
       "path": "newtonsoft.json.bson/1.0.1",
       "hashPath": "newtonsoft.json.bson.1.0.1.nupkg.sha512"
     },
-    "Remotion.Linq/2.2.0": {
-      "type": "package",
-      "serviceable": true,
-      "sha512": "sha512-twDAH8dAXXCAf3sRv1Tf94u66eEHvgU75hfn1nn2v4fSWXD50XoDOAk8WpSrbViNuMkB4kN1ElnOGm1c519IHg==",
-      "path": "remotion.linq/2.2.0",
-      "hashPath": "remotion.linq.2.2.0.nupkg.sha512"
-    },
     "runtime.debian.8-x64.runtime.native.System.Security.Cryptography.OpenSsl/4.3.0": {
       "type": "package",
       "serviceable": true,
@@ -4506,13 +5384,6 @@
       "path": "system.collections.concurrent/4.3.0",
       "hashPath": "system.collections.concurrent.4.3.0.nupkg.sha512"
     },
-    "System.Collections.Immutable/1.5.0": {
-      "type": "package",
-      "serviceable": true,
-      "sha512": "sha512-RGxi2aQoXgZ5ge0zxrKqI4PU9LrYYoLC+cnEnWXKsSduCOUhE1GEAAoTexUVT8RZOILQyy1B27HC8Xw/XLGzdQ==",
-      "path": "system.collections.immutable/1.5.0",
-      "hashPath": "system.collections.immutable.1.5.0.nupkg.sha512"
-    },
     "System.Collections.NonGeneric/4.3.0": {
       "type": "package",
       "serviceable": true,
@@ -4561,13 +5432,6 @@
       "sha512": "sha512-ZUhUOdqmaG5Jk3Xdb8xi5kIyQYAA4PnTNlHx1mu9ZY3qv4ELIdKbnL/akbGaKi2RnNUWaZsAs31rvzFdewTj2g==",
       "path": "system.diagnostics.debug/4.3.0",
       "hashPath": "system.diagnostics.debug.4.3.0.nupkg.sha512"
-    },
-    "System.Diagnostics.DiagnosticSource/4.5.0": {
-      "type": "package",
-      "serviceable": true,
-      "sha512": "sha512-UumL3CJklk5WyEt0eImPmjeuyY1JgJ7Thmg2hAeZGKCv+9iuuAsoc2wcXjypdo3J8VNEmVCH2Bgn/kIw8NI2bA==",
-      "path": "system.diagnostics.diagnosticsource/4.5.0",
-      "hashPath": "system.diagnostics.diagnosticsource.4.5.0.nupkg.sha512"
     },
     "System.Diagnostics.FileVersionInfo/4.3.0": {
       "type": "package",
@@ -4632,13 +5496,6 @@
       "path": "system.identitymodel.tokens.jwt/5.2.0",
       "hashPath": "system.identitymodel.tokens.jwt.5.2.0.nupkg.sha512"
     },
-    "System.Interactive.Async/3.1.1": {
-      "type": "package",
-      "serviceable": true,
-      "sha512": "sha512-x9y2omkjEudKbIVuhUzeWw7ZlouEzpk4W98woCEq1lq9gJxERBKRKDTHF5JPEws9E0f4/Uei/2vLxEy1IrfmMg==",
-      "path": "system.interactive.async/3.1.1",
-      "hashPath": "system.interactive.async.3.1.1.nupkg.sha512"
-    },
     "System.IO/4.3.0": {
       "type": "package",
       "serviceable": true,
@@ -4687,13 +5544,6 @@
       "sha512": "sha512-PGKkrd2khG4CnlyJwxwwaWWiSiWFNBGlgXvJpeO0xCXrZ89ODrQ6tjEWS/kOqZ8GwEOUATtKtzp1eRgmYNfclg==",
       "path": "system.linq.expressions/4.3.0",
       "hashPath": "system.linq.expressions.4.3.0.nupkg.sha512"
-    },
-    "System.Linq.Queryable/4.0.1": {
-      "type": "package",
-      "serviceable": true,
-      "sha512": "sha512-Yn/WfYe9RoRfmSLvUt2JerP0BTGGykCZkQPgojaxgzF2N0oPo+/AhB8TXOpdCcNlrG3VRtsamtK2uzsp3cqRVw==",
-      "path": "system.linq.queryable/4.0.1",
-      "hashPath": "system.linq.queryable.4.0.1.nupkg.sha512"
     },
     "System.Memory/4.5.1": {
       "type": "package",
@@ -5044,13 +5894,6 @@
       "sha512": "sha512-OHmbT+Zz065NKII/ZHcH9XO1dEuLGI1L2k7uYss+9C1jLxTC9kTZZuzUOyXHayRk+dft9CiDf3I/QZ0t8JKyBQ==",
       "path": "system.threading.thread/4.3.0",
       "hashPath": "system.threading.thread.4.3.0.nupkg.sha512"
-    },
-    "System.ValueTuple/4.3.0": {
-      "type": "package",
-      "serviceable": true,
-      "sha512": "sha512-cNLEvBX3d6MMQRZe3SMFNukVbitDAEpVZO17qa0/2FHxZ7Y7PpFRpr6m2615XYM/tYYYf0B+WyHNujqIw8Luwg==",
-      "path": "system.valuetuple/4.3.0",
-      "hashPath": "system.valuetuple.4.3.0.nupkg.sha512"
     },
     "System.Xml.ReaderWriter/4.3.0": {
       "type": "package",
