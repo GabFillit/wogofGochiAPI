@@ -47,8 +47,8 @@ namespace MeilleurDisponnible.Controllers
                 return BadRequest("Name is empty");
             }
 
-            int id =_userRepository.CreateUser(name);
-            return Ok(id);
+            _userRepository.CreateUser(name);
+            return Ok();
         }
 
         // PUT api/user/5

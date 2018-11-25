@@ -7,50 +7,49 @@ namespace MeilleurDisponnible.Models.User
 {
     public class UserRepository : IUserRepository
     {
-        public static List<UserEntity> UserList { get; set; }
-
-        public UserRepository()
+        public MeilleurDisponnibleContext _context;
+        public UserRepository(MeilleurDisponnibleContext context)
         {
-            UserList = new List<UserEntity>
-            {
-                new UserEntity
-                {
-                    Id = 0,
-                    Name = "default"
-                }
-            };
+            _context = context;
         }
 
         public List<UserEntity> GetUsers()
         {
-            return UserList;
+            var userList = _context.Users.ToList<UserEntity>();
+            return userList;
         }
 
         public UserEntity GetUser(int id)
         {
-            return UserList.FirstOrDefault(user => user.Id == id);
+            var user = _context.Users
+                .FirstOrDefault<UserEntity>(u => u.Id == id);
+            return user;
         }
 
-        public int CreateUser(string name)
+        public void CreateUser(string name)
         {
-            int id = UserList.Count;
-            UserList.Add(new UserEntity
-            {
-                Id = id,
-                Name = name
-            });
 
-            return id;
+            _context.Users
+                .Add(new UserEntity
+                {
+                    Name = name
+                });
+
+            _context.SaveChanges();
+
         }
 
         public void UpdateUser(UserEntity user, string name)
         {
             user.Name = name;
+            _context.Update(user);
+            _context.SaveChanges();
         }
 
         public void DeleteUser(UserEntity user)
         {
-            UserList.Remove(user);
+            _context.Remove(user);
+            _context.SaveChanges();
         }
     }
 }

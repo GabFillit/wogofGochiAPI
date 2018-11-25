@@ -13228,23 +13228,23 @@
     ]
   },
   "packageFolders": {
-    "C:\\Users\\gabriel.fillit\\.nuget\\packages\\": {},
+    "C:\\Users\\gab-f\\.nuget\\packages\\": {},
     "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder": {}
   },
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\gabriel.fillit\\source\\repos\\MeilleurDisponnible\\MeilleurDisponnible\\MeilleurDisponnible.csproj",
+      "projectUniqueName": "C:\\Users\\gab-f\\source\\repos\\wogofGochiAPI\\MeilleurDisponnible\\MeilleurDisponnible.csproj",
       "projectName": "MeilleurDisponnible",
-      "projectPath": "C:\\Users\\gabriel.fillit\\source\\repos\\MeilleurDisponnible\\MeilleurDisponnible\\MeilleurDisponnible.csproj",
-      "packagesPath": "C:\\Users\\gabriel.fillit\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\gabriel.fillit\\source\\repos\\MeilleurDisponnible\\MeilleurDisponnible\\obj\\",
+      "projectPath": "C:\\Users\\gab-f\\source\\repos\\wogofGochiAPI\\MeilleurDisponnible\\MeilleurDisponnible.csproj",
+      "packagesPath": "C:\\Users\\gab-f\\.nuget\\packages\\",
+      "outputPath": "C:\\Users\\gab-f\\source\\repos\\wogofGochiAPI\\MeilleurDisponnible\\obj\\",
       "projectStyle": "PackageReference",
       "fallbackFolders": [
         "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder"
       ],
       "configFilePaths": [
-        "C:\\Users\\gabriel.fillit\\AppData\\Roaming\\NuGet\\NuGet.Config",
+        "C:\\Users\\gab-f\\AppData\\Roaming\\NuGet\\NuGet.Config",
         "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
       ],
       "originalTargetFrameworks": [

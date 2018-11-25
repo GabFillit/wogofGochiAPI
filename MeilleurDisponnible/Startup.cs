@@ -34,10 +34,10 @@ namespace MeilleurDisponnible
             services.AddMvc().SetCompatibilityVersion(CompatibilityVersion.Version_2_1).AddFluentValidation();
 
             services.AddTransient<IValidator<UserEntity>, UserValidator>(); ;
-            services.AddSingleton<IUserRepository, UserRepository>();
-            services.AddSingleton<IGameRepository, GameRepository>();
+            services.AddScoped<IUserRepository, UserRepository>();
+            services.AddScoped<IGameRepository, GameRepository>();
 
-            var connection = @"Server=(localdb)\mssqllocaldb;Database=MeilleurDisponnibleDB;Trusted_Connection=True;ConnectRetryCount=0";
+            var connection = @"Server=(localdb)\mssqllocaldb;Database=MeilleurDisponnible;Trusted_Connection=True;ConnectRetryCount=0";
             services.AddDbContext<MeilleurDisponnibleContext>
                 (options => options.UseSqlServer(connection));
         }
