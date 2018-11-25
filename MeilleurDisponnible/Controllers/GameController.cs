@@ -8,7 +8,7 @@ using Microsoft.AspNetCore.Mvc;
 
 namespace MeilleurDisponnible.Controllers
 {
-    [Route("api/[controller]")]
+    [Route("api/user/{userId:int}/[controller]")]
     [ApiController]
     public class GameController : ControllerBase
     {
@@ -26,9 +26,16 @@ namespace MeilleurDisponnible.Controllers
             return Ok(_gameRepository.GetGames());
         }
 
+        // GET: api/user/Game
+        [HttpGet]
+        public IActionResult Get([FromRoute] int userId)
+        {
+            return Ok(_gameRepository.GetGamesByUser(userId));
+        }
+
         // GET: api/Game/5
         [HttpGet("{id}", Name = "Get")]
-        public string Get(int id)
+        public string Get([FromRoute] int userId, int id)
         {
             return "value";
         }

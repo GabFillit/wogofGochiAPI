@@ -15,28 +15,26 @@ namespace MeilleurDisponnible.Models.User
 
         public List<UserEntity> GetUsers()
         {
-            var userList = _context.Users.ToList<UserEntity>();
+            var userList = _context.UserEntity.ToList<UserEntity>();
             return userList;
         }
 
         public UserEntity GetUser(int id)
         {
-            var user = _context.Users
+            var user = _context.UserEntity
                 .FirstOrDefault<UserEntity>(u => u.Id == id);
             return user;
         }
 
         public void CreateUser(string name)
         {
-
-            _context.Users
+            _context.UserEntity
                 .Add(new UserEntity
                 {
                     Name = name
                 });
 
             _context.SaveChanges();
-
         }
 
         public void UpdateUser(UserEntity user, string name)

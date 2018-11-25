@@ -13,8 +13,8 @@ namespace MeilleurDisponnible.Models
             : base(options)
         { }
 
-        public DbSet<UserEntity> Users { get; set; }
-        public DbSet<GameEntity> Games { get; set; }
+        public DbSet<UserEntity> UserEntity { get; set; }
+        public DbSet<GameEntity> GameEntity { get; set; }
         
     }
 }
