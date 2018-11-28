@@ -28,9 +28,18 @@ namespace MeilleurDisponnible.Models.Game
             return games;
         }
 
-        public GameEntity GetGame(int id)
+        public GameEntity GetGame(int userId, int id)
         {
-            throw new NotImplementedException();
+            var game = _context.GameEntity
+                            .FirstOrDefault<GameEntity>(g => g.UserId == userId && g.Id == id);
+            return game;
+        }
+
+        public void CreateGame(int userId, string name)
+        {
+            _context.GameEntity
+                .Add(new GameEntity { UserId = userId, Name = name });
+            _context.SaveChanges();
         }
     }
 }

@@ -11,8 +11,14 @@ namespace MeilleurDisponnible.Models.Game
         [ForeignKey("UserEntity")]
         public int UserId { get; set; }
 
-        public DateTime StartDate { get; set; }
         public string Name { get; set; }
+        public DateTime StartDate { get; set; }
         public GameStatus Status { get; set; }
+
+        public GameEntity()
+        {
+            StartDate = DateTime.Now;
+            Status = GameStatus.Created;
+        }
     }
 }

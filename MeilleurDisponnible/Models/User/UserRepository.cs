@@ -15,7 +15,7 @@ namespace MeilleurDisponnible.Models.User
 
         public List<UserEntity> GetUsers()
         {
-            var userList = _context.UserEntity.ToList<UserEntity>();
+            var userList = _context.UserEntity.ToList();
             return userList;
         }
 

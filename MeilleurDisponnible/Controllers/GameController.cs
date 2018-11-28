@@ -26,24 +26,36 @@ namespace MeilleurDisponnible.Controllers
             return Ok(_gameRepository.GetGames());
         }
 
-        // GET: api/user/Game
+        // GET: api/user/1/Game
         [HttpGet]
         public IActionResult Get([FromRoute] int userId)
         {
             return Ok(_gameRepository.GetGamesByUser(userId));
         }
 
-        // GET: api/Game/5
+        // GET: api/user/1/Game/5
         [HttpGet("{id}", Name = "Get")]
-        public string Get([FromRoute] int userId, int id)
+        public IActionResult Get([FromRoute] int userId, int id)
         {
-            return "value";
+            GameEntity game = _gameRepository.GetGame(userId, id);
+            if (game == null)
+            {
+                return NotFound();
+            }
+            return Ok(game);
         }
 
-        // POST: api/Game
-        [HttpPost]
-        public void Post([FromBody] string value)
+        // POST: api/user/1/Game
+        [HttpPost()]
+        public IActionResult Post(int userId, [FromBody] string name)
         {
+            if (String.IsNullOrEmpty(name))
+            {
+                return BadRequest();
+            }
+            //if no userid return not foud
+            _gameRepository.CreateGame(userId, name);
+            return Ok();
         }
 
         // PUT: api/Game/5
