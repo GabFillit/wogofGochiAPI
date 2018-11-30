@@ -9,7 +9,7 @@ using Microsoft.AspNetCore.Mvc;
 
 namespace MeilleurDisponnible.Controllers
 {
-    [Route("api/user/{userId:int}/[controller]")]
+    [Route("api/user/{userId}/game")]
     [ApiController]
     public class GameController : ControllerBase
     {
@@ -31,7 +31,7 @@ namespace MeilleurDisponnible.Controllers
 
         // GET: api/user/1/Game
         [HttpGet]
-        public IActionResult Get(int userId)
+        public IActionResult GetUserGames(int userId)
         {
             return Ok(_gameRepository.GetGamesByUser(userId));
         }
@@ -52,7 +52,7 @@ namespace MeilleurDisponnible.Controllers
         [HttpPost()]
         public IActionResult Post(int userId, [FromBody] string name)
         {
-            if (String.IsNullOrEmpty(name))
+            if (string.IsNullOrEmpty(name))
             {
                 return BadRequest();
             }
@@ -63,13 +63,13 @@ namespace MeilleurDisponnible.Controllers
                 return NotFound();
             }
 
-            GameEntity game = new GameEntity { UserId = user.Id, User = user, Name = name };
+            GameEntity game = new GameEntity(user, name);
             _gameRepository.CreateGame(game);
 
             return Ok();
         }
 
-        // PUT: api/Game/5
+        // PUT: api/
         [HttpPut("{id}")]
         public void Put(int id, [FromBody] string value)
         {

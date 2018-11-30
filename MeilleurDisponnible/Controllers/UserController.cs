@@ -57,7 +57,7 @@ namespace MeilleurDisponnible.Controllers
 
             if (_userRepository.SaveUser() > 0)
             {
-                return Created("", user);
+                return Created("user/me", user);
             }
 
             return BadRequest();

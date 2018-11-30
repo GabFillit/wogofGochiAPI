@@ -21,5 +21,14 @@ namespace MeilleurDisponnible.Models.Game
             StartDate = DateTime.Now;
             Status = GameStatus.Created;
         }
+
+        public GameEntity(UserEntity user, string name) : base()
+        {
+            UserId = user.Id;
+            User = user;
+            Name = name;
+        }
+
+
     }
 }
