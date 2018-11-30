@@ -23,23 +23,27 @@ namespace MeilleurDisponnible.Models.Game
         public List<GameEntity> GetGamesByUser(int userId)
         {
             var games = _context.GameEntity
-                .Where<GameEntity>(g => g.UserId == userId)
+                .Where(g => g.UserId == userId)
                 .ToList();
             return games;
         }
 
-        public GameEntity GetGame(int userId, int id)
+        public GameEntity GetGame(int id)
         {
             var game = _context.GameEntity
-                            .FirstOrDefault<GameEntity>(g => g.UserId == userId && g.Id == id);
+                            .FirstOrDefault(g => g.Id == id);
             return game;
         }
 
-        public void CreateGame(int userId, string name)
+        public void CreateGame(GameEntity game)
         {
             _context.GameEntity
-                .Add(new GameEntity { UserId = userId, Name = name });
-            _context.SaveChanges();
+                .Add(game);
+        }
+
+        public int SaveGame()
+        {
+            return _context.SaveChanges();
         }
     }
 }

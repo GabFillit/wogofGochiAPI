@@ -9,7 +9,8 @@ namespace MeilleurDisponnible.Models.Game
     {
         List<GameEntity> GetGames();
         List<GameEntity> GetGamesByUser(int userId);
-        GameEntity GetGame(int userId, int id);
-        void CreateGame(int userId, string name);
+        GameEntity GetGame(int id);
+        void CreateGame(GameEntity game);
+        int SaveGame();
     }
 }

@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
+using FluentValidation;
 using MeilleurDisponnible.Models;
 using MeilleurDisponnible.Models.User;
 using Microsoft.AspNetCore.Mvc;
@@ -13,10 +14,12 @@ namespace MeilleurDisponnible.Controllers
     public class UserController : ControllerBase
     {
         public IUserRepository _userRepository;
+        public IValidator _userValidator;
 
         public UserController(IUserRepository userRepository)
         {
             _userRepository = userRepository;
+            _userValidator = new UserValidator();
         }
 
         // GET api/user
@@ -42,32 +45,49 @@ namespace MeilleurDisponnible.Controllers
         [HttpPost]
         public IActionResult Post([FromBody] string name)
         {
-            if (String.IsNullOrEmpty(name))
+            UserEntity user = new UserEntity { Name = name };
+
+            var valid = _userValidator.Validate(user);
+            if (!valid.IsValid)
             {
-                return BadRequest("Name is empty");
+                return BadRequest();
             }
 
-            _userRepository.CreateUser(name);
-            return Ok();
+            _userRepository.CreateUser(user);
+
+            if (_userRepository.SaveUser() > 0)
+            {
+                return Created("", user);
+            }
+
+            return BadRequest();
         }
 
         // PUT api/user/5
         [HttpPut("{id}")]
         public IActionResult Put(int id, [FromBody] string name)
         {
-            if (String.IsNullOrEmpty(name))
-            {
-                return BadRequest("Name is empty");
-            }
-
             UserEntity user = _userRepository.GetUser(id);
             if (user == null)
             {
                 return NotFound();
             }
 
-            _userRepository.UpdateUser(user, name);
-            return Ok();
+            user.Name = name;
+
+            var valid = _userValidator.Validate(user);
+            if (!valid.IsValid)
+            {
+                return BadRequest();
+            }
+
+            _userRepository.UpdateUser(user);
+            if (_userRepository.SaveUser() > 0)
+            {
+                return Ok(user);
+            }
+
+            return BadRequest(); ;
         }
 
         // DELETE api/user/5
@@ -81,7 +101,12 @@ namespace MeilleurDisponnible.Controllers
             }
 
             _userRepository.DeleteUser(user);
-            return Ok();
+            if (_userRepository.SaveUser() > 0)
+            {
+                return Ok(user);
+            }
+
+            return BadRequest(); ;
         }
     }
 }

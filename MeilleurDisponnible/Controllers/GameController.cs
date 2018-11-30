@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 using MeilleurDisponnible.Models.Game;
+using MeilleurDisponnible.Models.User;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 
@@ -13,10 +14,12 @@ namespace MeilleurDisponnible.Controllers
     public class GameController : ControllerBase
     {
         public IGameRepository _gameRepository;
+        public IUserRepository _userRepository;
 
-        public GameController(IGameRepository gameRepository)
+        public GameController(IGameRepository gameRepository, IUserRepository userRepository)
         {
             _gameRepository = gameRepository;
+            _userRepository = userRepository;
         }
 
         // GET: api/Game
@@ -28,16 +31,16 @@ namespace MeilleurDisponnible.Controllers
 
         // GET: api/user/1/Game
         [HttpGet]
-        public IActionResult Get([FromRoute] int userId)
+        public IActionResult Get(int userId)
         {
             return Ok(_gameRepository.GetGamesByUser(userId));
         }
 
         // GET: api/user/1/Game/5
         [HttpGet("{id}", Name = "Get")]
-        public IActionResult Get([FromRoute] int userId, int id)
+        public IActionResult Get(int userId, int id)
         {
-            GameEntity game = _gameRepository.GetGame(userId, id);
+            GameEntity game = _gameRepository.GetGame(id);
             if (game == null)
             {
                 return NotFound();
@@ -53,8 +56,16 @@ namespace MeilleurDisponnible.Controllers
             {
                 return BadRequest();
             }
-            //if no userid return not foud
-            _gameRepository.CreateGame(userId, name);
+
+            var user = _userRepository.GetUser(userId);
+            if (user == null)
+            {
+                return NotFound();
+            }
+
+            GameEntity game = new GameEntity { UserId = user.Id, User = user, Name = name };
+            _gameRepository.CreateGame(game);
+
             return Ok();
         }
 

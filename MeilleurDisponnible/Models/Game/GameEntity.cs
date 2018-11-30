@@ -10,6 +10,7 @@ namespace MeilleurDisponnible.Models.Game
     {
         [ForeignKey("UserEntity")]
         public int UserId { get; set; }
+        public UserEntity User { get; set; }
 
         public string Name { get; set; }
         public DateTime StartDate { get; set; }

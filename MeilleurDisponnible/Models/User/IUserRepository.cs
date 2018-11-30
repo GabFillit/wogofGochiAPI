@@ -9,8 +9,9 @@ namespace MeilleurDisponnible.Models.User
     {
         List<UserEntity> GetUsers();
         UserEntity GetUser(int id);
-        void CreateUser(string name);
-        void UpdateUser(UserEntity user, string name);
+        void CreateUser(UserEntity user);
+        void UpdateUser(UserEntity user);
         void DeleteUser(UserEntity user);
+        int SaveUser();
     }
 }

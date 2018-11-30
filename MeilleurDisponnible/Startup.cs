@@ -33,7 +33,6 @@ namespace MeilleurDisponnible
         {
             services.AddMvc().SetCompatibilityVersion(CompatibilityVersion.Version_2_1).AddFluentValidation();
 
-            services.AddTransient<IValidator<UserEntity>, UserValidator>(); ;
             services.AddScoped<IUserRepository, UserRepository>();
             services.AddScoped<IGameRepository, GameRepository>();
 

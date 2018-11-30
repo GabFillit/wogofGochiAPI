@@ -22,32 +22,29 @@ namespace MeilleurDisponnible.Models.User
         public UserEntity GetUser(int id)
         {
             var user = _context.UserEntity
-                .FirstOrDefault<UserEntity>(u => u.Id == id);
+                .FirstOrDefault(u => u.Id == id);
             return user;
         }
 
-        public void CreateUser(string name)
+        public void CreateUser(UserEntity user)
         {
             _context.UserEntity
-                .Add(new UserEntity
-                {
-                    Name = name
-                });
-
-            _context.SaveChanges();
+                .Add(user);
         }
 
-        public void UpdateUser(UserEntity user, string name)
+        public void UpdateUser(UserEntity user)
         {
-            user.Name = name;
             _context.Update(user);
-            _context.SaveChanges();
         }
 
         public void DeleteUser(UserEntity user)
         {
             _context.Remove(user);
-            _context.SaveChanges();
+        }
+
+        public int SaveUser()
+        {
+            return _context.SaveChanges();
         }
     }
 }
