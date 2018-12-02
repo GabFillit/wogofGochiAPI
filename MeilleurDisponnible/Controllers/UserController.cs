@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 using FluentValidation;
+using MeilleurDisponnible.CustomMapper;
 using MeilleurDisponnible.Models;
 using MeilleurDisponnible.Models.User;
 using Microsoft.AspNetCore.Mvc;
@@ -15,11 +16,13 @@ namespace MeilleurDisponnible.Controllers
     {
         public IUserRepository _userRepository;
         public IValidator _userValidator;
+        IMappingProvider _createUserEntityProvider;
 
-        public UserController(IUserRepository userRepository)
+        public UserController(IUserRepository userRepository,)
         {
             _userRepository = userRepository;
             _userValidator = new UserValidator();
+            _createUserEntityProvider = new CreateUserEntityMappingProvider();
         }
 
         // GET api/user
@@ -43,9 +46,10 @@ namespace MeilleurDisponnible.Controllers
 
         // POST api/user
         [HttpPost]
-        public IActionResult Post([FromBody] string name)
+        public IActionResult Post([FromBody] CreateUserDTO createUserDTO)
         {
-            UserEntity user = new UserEntity { Name = name };
+            Mapper mapper = new Mapper(_createUserEntityProvider);
+            UserEntity user = mapper.Map<UserEntity>(createUserDTO);
 
             var valid = _userValidator.Validate(user);
             if (!valid.IsValid)
