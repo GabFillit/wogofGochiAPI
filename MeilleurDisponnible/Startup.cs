@@ -32,9 +32,11 @@ namespace MeilleurDisponnible
         public void ConfigureServices(IServiceCollection services)
         {
             services.AddMvc().SetCompatibilityVersion(CompatibilityVersion.Version_2_1).AddFluentValidation();
-
+            #region services
             services.AddScoped<IUserRepository, UserRepository>();
             services.AddScoped<IGameRepository, GameRepository>();
+            services.AddScoped<IValidator<GameEntity>, GameValidator>();
+            #endregion
 
             var connection = @"Server=(localdb)\mssqllocaldb;Database=MeilleurDisponnible;Trusted_Connection=True;ConnectRetryCount=0";
             services.AddDbContext<MeilleurDisponnibleContext>

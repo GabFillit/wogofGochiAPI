@@ -9,10 +9,5 @@ namespace MeilleurDisponnible.Models
     public class UserEntity : EntityBase 
     {
         public string Name { get; set; }
-
-        public UserEntity(string name)
-        {
-            Name = name;
-        }
     }
 }

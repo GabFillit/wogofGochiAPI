@@ -2,6 +2,8 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
+using FluentValidation;
+using MeilleurDisponnible.CustomMapper;
 using MeilleurDisponnible.Models.Game;
 using MeilleurDisponnible.Models.User;
 using Microsoft.AspNetCore.Http;
@@ -15,11 +17,17 @@ namespace MeilleurDisponnible.Controllers
     {
         public IGameRepository _gameRepository;
         public IUserRepository _userRepository;
+        public IValidator<GameEntity> _gameValidator;
+        public IMappingProvider _gameEntityMappingProvider;
+        public Mapper _mapper;
 
-        public GameController(IGameRepository gameRepository, IUserRepository userRepository)
+        public GameController(IGameRepository gameRepository, IUserRepository userRepository, IValidator<GameEntity> gameValidator)
         {
             _gameRepository = gameRepository;
             _userRepository = userRepository;
+            _gameValidator = gameValidator;
+            _gameEntityMappingProvider = new GameEntityMappingProvider();
+            _mapper = new Mapper();
         }
 
         // GET: api/Game
@@ -37,8 +45,8 @@ namespace MeilleurDisponnible.Controllers
         }
 
         // GET: api/user/1/Game/5
-        [HttpGet("{id}", Name = "Get")]
-        public IActionResult Get(int userId, int id)
+        [HttpGet("{id}")]
+        public IActionResult Get(int id)
         {
             GameEntity game = _gameRepository.GetGame(id);
             if (game == null)
@@ -50,9 +58,10 @@ namespace MeilleurDisponnible.Controllers
 
         // POST: api/user/1/Game
         [HttpPost()]
-        public IActionResult Post(int userId, [FromBody] string name)
+        public IActionResult Post(int userId, [FromBody] CreateGameDTO createGameDTO)
         {
-            if (string.IsNullOrEmpty(name))
+            var valid = _gameValidator.Validate(createGameDTO);
+            if (!valid.IsValid)
             {
                 return BadRequest();
             }
@@ -63,22 +72,61 @@ namespace MeilleurDisponnible.Controllers
                 return NotFound();
             }
 
-            GameEntity game = new GameEntity(user, name);
+            GameEntity game = _mapper.Map<GameEntity>(createGameDTO);
+            game.User = user;
+
             _gameRepository.CreateGame(game);
 
-            return Ok();
+            if (_gameRepository.SaveGame()>0)
+            {
+                return Ok();
+            }
+            return BadRequest();
         }
 
         // PUT: api/
         [HttpPut("{id}")]
-        public void Put(int id, [FromBody] string value)
+        public IActionResult Put(int id, [FromBody] UpdateGameDTO updateGameDTO)
         {
+            var valid = _gameValidator.Validate(updateGameDTO);
+            if (!valid.IsValid)
+            {
+                return BadRequest();
+            }
+
+            GameEntity game = _gameRepository.GetGame(id);
+            if (game == null)
+            {
+                return NotFound();
+            }
+
+            game.Name = updateGameDTO.name;
+            game.Status = updateGameDTO.status;
+
+            if (_gameRepository.SaveGame() > 0)
+            {
+                return Ok();
+            }
+            return BadRequest();
         }
 
         // DELETE: api/ApiWithActions/5
         [HttpDelete("{id}")]
-        public void Delete(int id)
+        public IActionResult Delete(int id)
         {
+            GameEntity game = _gameRepository.GetGame(id);
+            if (game == null)
+            {
+                return NotFound();
+            }
+
+            _gameRepository.DeleteGame(game);
+
+            if (_gameRepository.SaveGame()>0)
+            {
+                return Ok();
+            }
+            return BadRequest();
         }
     }
 }

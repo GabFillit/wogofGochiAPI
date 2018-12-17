@@ -1,4 +1,7 @@
-﻿using System;
+﻿using MeilleurDisponnible.Models;
+using MeilleurDisponnible.Models.Game;
+using MeilleurDisponnible.Models.User;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
@@ -7,16 +10,24 @@ namespace MeilleurDisponnible.CustomMapper
 {
     public class Mapper
     {
-        public IMappingProvider MappingProvider { get; private set; }
 
-        public Mapper( IMappingProvider provider )
+        private Dictionary<Type, Lazy<IMappingProvider>> _mappingProviders;
+
+        public Mapper()
         {
-            MappingProvider = provider;
+            _mappingProviders = new Dictionary<Type, Lazy<IMappingProvider>>
+            {
+                { typeof(UserEntity), new Lazy<IMappingProvider>(() => new UserEntityMappingProvider()) },
+                { typeof(GameEntity), new Lazy<IMappingProvider>(() => new GameEntityMappingProvider()) }
+            };
+
         }
 
-        public T Map<T>(IMappable input)
+        public TDestination Map<TDestination>(IMappable input)
         {
-            return MappingProvider.Map<T>(input);
+            var specificProvider = _mappingProviders[typeof(TDestination)].Value;
+
+            return specificProvider.Map<TDestination>(input);
         }
     }
 }

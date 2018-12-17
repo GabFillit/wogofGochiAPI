@@ -41,6 +41,16 @@ namespace MeilleurDisponnible.Models.Game
                 .Add(game);
         }
 
+        public void UpdateGame(GameEntity game)
+        {
+            _context.Update(game);
+        }
+
+        public void DeleteGame(GameEntity game)
+        {
+            _context.Remove(game);
+        }
+
         public int SaveGame()
         {
             return _context.SaveChanges();

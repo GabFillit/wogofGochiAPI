@@ -1,8 +1,9 @@
 ﻿using FluentValidation;
+using MeilleurDisponnible.Models;
 
 namespace MeilleurDisponnible
 {
-    public class UserValidator : AbstractValidator<Models.UserEntity>
+    public class UserValidator : AbstractValidator<UserEntity>
     {
         public UserValidator()
         {

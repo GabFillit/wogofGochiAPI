@@ -7,6 +7,6 @@ namespace MeilleurDisponnible.CustomMapper
 {
     public interface IMappingProvider
     {
-        T Map<T>(IMappable input);
+        TDestination Map<TDestination>(object input);
     }
 }

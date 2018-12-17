@@ -16,13 +16,15 @@ namespace MeilleurDisponnible.Controllers
     {
         public IUserRepository _userRepository;
         public IValidator _userValidator;
-        IMappingProvider _createUserEntityProvider;
+        public IMappingProvider _createUserEntityProvider;
+        public Mapper _mapper;
 
-        public UserController(IUserRepository userRepository,)
+        public UserController(IUserRepository userRepository)
         {
             _userRepository = userRepository;
             _userValidator = new UserValidator();
-            _createUserEntityProvider = new CreateUserEntityMappingProvider();
+            _createUserEntityProvider = new UserEntityMappingProvider();
+            _mapper = new Mapper(_createUserEntityProvider);
         }
 
         // GET api/user
@@ -48,8 +50,7 @@ namespace MeilleurDisponnible.Controllers
         [HttpPost]
         public IActionResult Post([FromBody] CreateUserDTO createUserDTO)
         {
-            Mapper mapper = new Mapper(_createUserEntityProvider);
-            UserEntity user = mapper.Map<UserEntity>(createUserDTO);
+            UserEntity user = _mapper.Map<UserEntity>(createUserDTO);
 
             var valid = _userValidator.Validate(user);
             if (!valid.IsValid)
@@ -69,7 +70,7 @@ namespace MeilleurDisponnible.Controllers
 
         // PUT api/user/5
         [HttpPut("{id}")]
-        public IActionResult Put(int id, [FromBody] string name)
+        public IActionResult Put(int id, [FromBody] UserDTO userDTO)
         {
             UserEntity user = _userRepository.GetUser(id);
             if (user == null)
@@ -77,7 +78,7 @@ namespace MeilleurDisponnible.Controllers
                 return NotFound();
             }
 
-            user.Name = name;
+            user.Name = userDTO.name;
 
             var valid = _userValidator.Validate(user);
             if (!valid.IsValid)
@@ -88,7 +89,7 @@ namespace MeilleurDisponnible.Controllers
             _userRepository.UpdateUser(user);
             if (_userRepository.SaveUser() > 0)
             {
-                return Ok(user);
+                return Ok(userDTO);
             }
 
             return BadRequest(); ;
