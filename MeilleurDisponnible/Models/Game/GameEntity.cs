@@ -8,10 +8,8 @@ namespace MeilleurDisponnible.Models.Game
 {
     public class GameEntity : EntityBase
     {
-        [ForeignKey("UserEntity")]
-        public int UserId { get; set; }
+        
         public UserEntity User { get; set; }
-
         public string Name { get; set; }
         public DateTime StartDate { get; set; }
         public GameStatus Status { get; set; }
@@ -24,7 +22,7 @@ namespace MeilleurDisponnible.Models.Game
 
         public GameEntity(UserEntity user, string name) : base()
         {
-            UserId = user.Id;
+            User = user;
             User = user;
             Name = name;
         }

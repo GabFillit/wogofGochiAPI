@@ -16,15 +16,13 @@ namespace MeilleurDisponnible.Controllers
     {
         public IUserRepository _userRepository;
         public IValidator _userValidator;
-        public IMappingProvider _createUserEntityProvider;
         public Mapper _mapper;
 
         public UserController(IUserRepository userRepository)
         {
             _userRepository = userRepository;
             _userValidator = new UserValidator();
-            _createUserEntityProvider = new UserEntityMappingProvider();
-            _mapper = new Mapper(_createUserEntityProvider);
+            _mapper = new Mapper();
         }
 
         // GET api/user

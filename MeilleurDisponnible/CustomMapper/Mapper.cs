@@ -1,4 +1,5 @@
 ﻿using MeilleurDisponnible.Models;
+using MeilleurDisponnible.Models.Character;
 using MeilleurDisponnible.Models.Game;
 using MeilleurDisponnible.Models.User;
 using System;
@@ -18,7 +19,8 @@ namespace MeilleurDisponnible.CustomMapper
             _mappingProviders = new Dictionary<Type, Lazy<IMappingProvider>>
             {
                 { typeof(UserEntity), new Lazy<IMappingProvider>(() => new UserEntityMappingProvider()) },
-                { typeof(GameEntity), new Lazy<IMappingProvider>(() => new GameEntityMappingProvider()) }
+                { typeof(GameEntity), new Lazy<IMappingProvider>(() => new GameEntityMappingProvider()) },
+                { typeof(CharacterEntity), new Lazy<IMappingProvider>(() => new CharacterEntityMappingProvider()) }
             };
 
         }

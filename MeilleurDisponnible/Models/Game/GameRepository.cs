@@ -20,10 +20,10 @@ namespace MeilleurDisponnible.Models.Game
             return games;
         }
 
-        public List<GameEntity> GetGamesByUser(int userId)
+        public List<GameEntity> GetGamesByUser(UserEntity user)
         {
             var games = _context.GameEntity
-                .Where(g => g.UserId == userId)
+                .Where(g => g.User == user)
                 .ToList();
             return games;
         }

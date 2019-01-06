@@ -4,14 +4,16 @@ using MeilleurDisponnible.Models;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 
 namespace MeilleurDisponnible.Migrations
 {
     [DbContext(typeof(MeilleurDisponnibleContext))]
-    partial class MeilleurDisponnibleContextModelSnapshot : ModelSnapshot
+    [Migration("20190106222847_addStats")]
+    partial class addStats
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder

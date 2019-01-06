@@ -4,14 +4,16 @@ using MeilleurDisponnible.Models;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 
 namespace MeilleurDisponnible.Migrations
 {
     [DbContext(typeof(MeilleurDisponnibleContext))]
-    partial class MeilleurDisponnibleContextModelSnapshot : ModelSnapshot
+    [Migration("20190105215043_addCharacter")]
+    partial class addCharacter
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -57,25 +59,6 @@ namespace MeilleurDisponnible.Migrations
                     b.HasIndex("UserId");
 
                     b.ToTable("GameEntity");
-                });
-
-            modelBuilder.Entity("MeilleurDisponnible.Models.Stats.StatsEntity", b =>
-                {
-                    b.Property<int>("Id")
-                        .ValueGeneratedOnAdd()
-                        .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
-
-                    b.Property<int>("CharacterId");
-
-                    b.Property<int>("Current");
-
-                    b.Property<int>("Type");
-
-                    b.HasKey("Id", "CharacterId");
-
-                    b.HasAlternateKey("Id");
-
-                    b.ToTable("Stats");
                 });
 
             modelBuilder.Entity("MeilleurDisponnible.Models.UserEntity", b =>

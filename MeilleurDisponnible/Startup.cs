@@ -16,6 +16,7 @@ using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Logging;
 using Microsoft.Extensions.Options;
 using Microsoft.EntityFrameworkCore;
+using MeilleurDisponnible.Models.Character;
 
 namespace MeilleurDisponnible
 {
@@ -36,6 +37,8 @@ namespace MeilleurDisponnible
             services.AddScoped<IUserRepository, UserRepository>();
             services.AddScoped<IGameRepository, GameRepository>();
             services.AddScoped<IValidator<GameEntity>, GameValidator>();
+            services.AddScoped<IValidator<CharacterEntity>, CharacterValidator>();
+            services.AddScoped<ICharacterService, CharacterService>();
             #endregion
 
             var connection = @"Server=(localdb)\mssqllocaldb;Database=MeilleurDisponnible;Trusted_Connection=True;ConnectRetryCount=0";

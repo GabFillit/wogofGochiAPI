@@ -18,7 +18,6 @@ namespace MeilleurDisponnible.Controllers
         public IGameRepository _gameRepository;
         public IUserRepository _userRepository;
         public IValidator<GameEntity> _gameValidator;
-        public IMappingProvider _gameEntityMappingProvider;
         public Mapper _mapper;
 
         public GameController(IGameRepository gameRepository, IUserRepository userRepository, IValidator<GameEntity> gameValidator)
@@ -26,22 +25,26 @@ namespace MeilleurDisponnible.Controllers
             _gameRepository = gameRepository;
             _userRepository = userRepository;
             _gameValidator = gameValidator;
-            _gameEntityMappingProvider = new GameEntityMappingProvider();
             _mapper = new Mapper();
         }
 
         // GET: api/Game
-        [HttpGet]
-        public IActionResult Get()
-        {
-            return Ok(_gameRepository.GetGames());
-        }
+        //[HttpGet]
+        //public IActionResult Get()
+        //{
+        //    return Ok(_gameRepository.GetGames());
+        //}
 
         // GET: api/user/1/Game
         [HttpGet]
         public IActionResult GetUserGames(int userId)
         {
-            return Ok(_gameRepository.GetGamesByUser(userId));
+            var user = _userRepository.GetUser(userId);
+            if (user == null)
+            {
+                return NotFound();
+            }
+            return Ok(_gameRepository.GetGamesByUser(user));
         }
 
         // GET: api/user/1/Game/5
@@ -60,11 +63,7 @@ namespace MeilleurDisponnible.Controllers
         [HttpPost()]
         public IActionResult Post(int userId, [FromBody] CreateGameDTO createGameDTO)
         {
-            var valid = _gameValidator.Validate(createGameDTO);
-            if (!valid.IsValid)
-            {
-                return BadRequest();
-            }
+            GameEntity game = _mapper.Map<GameEntity>(createGameDTO);
 
             var user = _userRepository.GetUser(userId);
             if (user == null)
@@ -72,8 +71,13 @@ namespace MeilleurDisponnible.Controllers
                 return NotFound();
             }
 
-            GameEntity game = _mapper.Map<GameEntity>(createGameDTO);
             game.User = user;
+
+            var valid = _gameValidator.Validate(game);
+            if (!valid.IsValid)
+            {
+                return BadRequest();
+            }
 
             _gameRepository.CreateGame(game);
 
