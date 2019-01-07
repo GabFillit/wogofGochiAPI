@@ -36,8 +36,8 @@ namespace MeilleurDisponnible
             #region services
             services.AddScoped<IUserRepository, UserRepository>();
             services.AddScoped<IGameRepository, GameRepository>();
-            services.AddScoped<IValidator<GameEntity>, GameValidator>();
-            services.AddScoped<IValidator<CharacterEntity>, CharacterValidator>();
+            services.AddScoped<IValidator<Game>, GameValidator>();
+            services.AddScoped<IValidator<Character>, CharacterValidator>();
             services.AddScoped<ICharacterService, CharacterService>();
             #endregion
 

@@ -7,12 +7,12 @@ namespace MeilleurDisponnible.Models.Game
 {
     public interface IGameRepository
     {
-        List<GameEntity> GetGames();
-        List<GameEntity> GetGamesByUser(UserEntity user);
-        GameEntity GetGame(int id);
-        void CreateGame(GameEntity game);
-        void UpdateGame(GameEntity game);
-        void DeleteGame(GameEntity game);
+        List<Game> GetGames();
+        List<Game> GetGamesByUser(UserEntity user);
+        Game GetGame(int id);
+        void CreateGame(Game game);
+        void UpdateGame(Game game);
+        void DeleteGame(Game game);
         int SaveGame();
     }
 }

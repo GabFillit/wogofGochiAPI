@@ -20,9 +20,9 @@ namespace MeilleurDisponnible.Models.Character
             return (TDestination)character;
         }
 
-        private CharacterEntity Map(CreateCharacterDTO input)
+        private Character Map(CreateCharacterDTO input)
         {
-            CharacterEntity character = new CharacterEntity
+            Character character = new Character
             {
                 Name = input.name
             };

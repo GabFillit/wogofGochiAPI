@@ -19,8 +19,8 @@ namespace MeilleurDisponnible.CustomMapper
             _mappingProviders = new Dictionary<Type, Lazy<IMappingProvider>>
             {
                 { typeof(UserEntity), new Lazy<IMappingProvider>(() => new UserEntityMappingProvider()) },
-                { typeof(GameEntity), new Lazy<IMappingProvider>(() => new GameEntityMappingProvider()) },
-                { typeof(CharacterEntity), new Lazy<IMappingProvider>(() => new CharacterEntityMappingProvider()) }
+                { typeof(Game), new Lazy<IMappingProvider>(() => new GameEntityMappingProvider()) },
+                { typeof(Character), new Lazy<IMappingProvider>(() => new CharacterEntityMappingProvider()) }
             };
 
         }

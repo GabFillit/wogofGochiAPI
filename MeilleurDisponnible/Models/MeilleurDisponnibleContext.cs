@@ -16,20 +16,29 @@ namespace MeilleurDisponnible.Models
         { }
 
         public DbSet<UserEntity> UserEntity { get; set; }
-        public DbSet<GameEntity> GameEntity { get; set; }
-        public DbSet<CharacterEntity> CharacterEntity { get; set; }
-        public DbSet<StatsEntity> Stats { get; set; }
+        public DbSet<Game.Game> GameEntity { get; set; }
+        public DbSet<Character.Character> CharacterEntity { get; set; }
+        public DbSet<Stat> Stats { get; set; }
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
             base.OnModelCreating(modelBuilder);
 
-            modelBuilder.Entity<GameEntity>()
+            modelBuilder.Entity<Game.Game>()
                 .HasOne(g => g.User);
-            modelBuilder.Entity<CharacterEntity>()
-                .HasOne(c => c.Game);
-            modelBuilder.Entity<StatsEntity>()
-                .HasKey(s => new { s.Id, s.CharacterId });
+
+            var characterEntityBuilder = modelBuilder.Entity<Character.Character>();
+            characterEntityBuilder
+                .HasOne(c => c.Game)
+                .WithOne(g => g.Character);
+
+            characterEntityBuilder
+                .HasMany(c => c.Stats)
+                .WithOne(s => s.Character);
+
+            modelBuilder.Entity<Stat>()
+                .HasOne(s => s.Character)
+                .WithMany(c => c.Stats);
         }
     }
 }

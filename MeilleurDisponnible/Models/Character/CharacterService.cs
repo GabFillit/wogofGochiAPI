@@ -8,38 +8,41 @@ namespace MeilleurDisponnible.Models.Character
 {
     public class CharacterService : ICharacterService
     {
-        public MeilleurDisponnibleContext _context;
+        private MeilleurDisponnibleContext _context;
+        private readonly ICharacterRepository _characterRepository;
 
-        public CharacterService(MeilleurDisponnibleContext context)
+        public CharacterService(MeilleurDisponnibleContext context, ICharacterRepository characterRepository)
         {
             _context = context;
+            _characterRepository = characterRepository;
         }
 
-        public List<CharacterEntity> GetCharacters()
+        public List<Character> GetCharacters()
         {
             var character = _context.CharacterEntity.ToList();
             return character;
         }
 
-        public CharacterEntity GetCharacter(int id)
+        public Character GetCharacter(int id)
         {
             var character = _context.CharacterEntity
                 .FirstOrDefault(u => u.Id == id);
             return character;
         }
 
-        public void CreateCharacter(CharacterEntity character)
+        public void CreateCharacter(Character character, Game.Game game)
         {
-            _context.CharacterEntity   
-              .Add(character);
-            _context.Stats
-               .Add(new StatsEntity(character.Id, StatsType.Hunger));
-            _context.Stats
-               .Add(new StatsEntity(character.Id, StatsType.Thirst));
-            _context.Stats
-               .Add(new StatsEntity(character.Id, StatsType.Energy));
-            _context.Stats
-               .Add(new StatsEntity(character.Id, StatsType.Health));
+            character.Game = game;
+            character.Stats
+               .Add(new Stat(StatsType.Hunger));
+            character.Stats
+               .Add(new Stat(StatsType.Thirst));
+            character.Stats
+               .Add(new Stat(StatsType.Energy));
+            character.Stats
+               .Add(new Stat(StatsType.Health));
+
+            _characterRepository.AddCharacter(character);
         }
 
         public int SaveCharacter()

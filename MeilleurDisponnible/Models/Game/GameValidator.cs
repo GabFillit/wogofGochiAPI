@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace MeilleurDisponnible.Models.Game
 {
-    public class GameValidator : AbstractValidator<GameEntity>
+    public class GameValidator : AbstractValidator<Game>
     {
         public GameValidator()
         {

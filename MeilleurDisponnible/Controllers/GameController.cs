@@ -17,10 +17,10 @@ namespace MeilleurDisponnible.Controllers
     {
         public IGameRepository _gameRepository;
         public IUserRepository _userRepository;
-        public IValidator<GameEntity> _gameValidator;
+        public IValidator<Game> _gameValidator;
         public Mapper _mapper;
 
-        public GameController(IGameRepository gameRepository, IUserRepository userRepository, IValidator<GameEntity> gameValidator)
+        public GameController(IGameRepository gameRepository, IUserRepository userRepository, IValidator<Game> gameValidator)
         {
             _gameRepository = gameRepository;
             _userRepository = userRepository;
@@ -51,7 +51,7 @@ namespace MeilleurDisponnible.Controllers
         [HttpGet("{id}")]
         public IActionResult Get(int id)
         {
-            GameEntity game = _gameRepository.GetGame(id);
+            Game game = _gameRepository.GetGame(id);
             if (game == null)
             {
                 return NotFound();
@@ -63,7 +63,7 @@ namespace MeilleurDisponnible.Controllers
         [HttpPost()]
         public IActionResult Post(int userId, [FromBody] CreateGameDTO createGameDTO)
         {
-            GameEntity game = _mapper.Map<GameEntity>(createGameDTO);
+            Game game = _mapper.Map<Game>(createGameDTO);
 
             var user = _userRepository.GetUser(userId);
             if (user == null)
@@ -98,7 +98,7 @@ namespace MeilleurDisponnible.Controllers
                 return BadRequest();
             }
 
-            GameEntity game = _gameRepository.GetGame(id);
+            Game game = _gameRepository.GetGame(id);
             if (game == null)
             {
                 return NotFound();
@@ -118,7 +118,7 @@ namespace MeilleurDisponnible.Controllers
         [HttpDelete("{id}")]
         public IActionResult Delete(int id)
         {
-            GameEntity game = _gameRepository.GetGame(id);
+            Game game = _gameRepository.GetGame(id);
             if (game == null)
             {
                 return NotFound();

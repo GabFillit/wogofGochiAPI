@@ -6,16 +6,15 @@ using System.Threading.Tasks;
 
 namespace MeilleurDisponnible.Models.Stats
 {
-    public class StatsEntity : EntityBase
+    public class Stat : EntityBase
     {
         public int CharacterId { get; set; }
+        public Character.Character Character { get; set; }
         public int Current { get; set; }
         public StatsType Type { get; set; }
 
-        public StatsEntity(int characterId, StatsType type)
+        public Stat(StatsType type)
         {
-            CharacterId = characterId;
-
             //TODO: CONFIG file
             Current = 50;
 

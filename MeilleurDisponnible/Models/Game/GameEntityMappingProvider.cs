@@ -20,9 +20,9 @@ namespace MeilleurDisponnible.Models.Game
             return (TDestination)game;
         }
 
-        private GameEntity Map(CreateGameDTO input)
+        private Game Map(CreateGameDTO input)
         {
-            GameEntity game = new GameEntity
+            Game game = new Game
             {
                 Name = input.name
             };

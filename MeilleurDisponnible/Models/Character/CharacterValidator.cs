@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace MeilleurDisponnible.Models.Character
 {
-    public class CharacterValidator : AbstractValidator<CharacterEntity>
+    public class CharacterValidator : AbstractValidator<Character>
     {
         public CharacterValidator()
         {

@@ -14,13 +14,13 @@ namespace MeilleurDisponnible.Models.Game
             _context = context;
         }
 
-        public List<GameEntity> GetGames()
+        public List<Game> GetGames()
         {
             var games = _context.GameEntity.ToList();
             return games;
         }
 
-        public List<GameEntity> GetGamesByUser(UserEntity user)
+        public List<Game> GetGamesByUser(UserEntity user)
         {
             var games = _context.GameEntity
                 .Where(g => g.User == user)
@@ -28,25 +28,25 @@ namespace MeilleurDisponnible.Models.Game
             return games;
         }
 
-        public GameEntity GetGame(int id)
+        public Game GetGame(int id)
         {
             var game = _context.GameEntity
                             .FirstOrDefault(g => g.Id == id);
             return game;
         }
 
-        public void CreateGame(GameEntity game)
+        public void CreateGame(Game game)
         {
             _context.GameEntity
                 .Add(game);
         }
 
-        public void UpdateGame(GameEntity game)
+        public void UpdateGame(Game game)
         {
             _context.Update(game);
         }
 
-        public void DeleteGame(GameEntity game)
+        public void DeleteGame(Game game)
         {
             _context.Remove(game);
         }
