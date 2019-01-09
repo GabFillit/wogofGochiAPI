@@ -24,14 +24,18 @@ namespace MeilleurDisponnible.Models
         {
             base.OnModelCreating(modelBuilder);
 
-            modelBuilder.Entity<Game.Game>()
+            var gameEntityBuilder = modelBuilder.Entity<Game.Game>();
+            gameEntityBuilder
                 .HasOne(g => g.User);
+            gameEntityBuilder
+                .HasOne(g => g.Character)
+                .WithOne(c => c.Game)
+                .HasForeignKey<Character.Character>(g => g.GameId);
 
             var characterEntityBuilder = modelBuilder.Entity<Character.Character>();
             characterEntityBuilder
                 .HasOne(c => c.Game)
                 .WithOne(g => g.Character);
-
             characterEntityBuilder
                 .HasMany(c => c.Stats)
                 .WithOne(s => s.Character);

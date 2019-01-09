@@ -33,8 +33,9 @@ namespace MeilleurDisponnible.Models.Character
         public void CreateCharacter(Character character, Game.Game game)
         {
             character.Game = game;
+
             character.Stats
-               .Add(new Stat(StatsType.Hunger));
+               .Add(new Stat(StatsType.Hunger)); //System.NullReferenceException: 'Object reference not set to an instance of an object.'
             character.Stats
                .Add(new Stat(StatsType.Thirst));
             character.Stats
