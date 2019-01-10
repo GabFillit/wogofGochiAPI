@@ -23,19 +23,12 @@ namespace MeilleurDisponnible.Models.Character
             return character;
         }
 
-        public Character GetCharacter(int id)
-        {
-            var character = _context.CharacterEntity
-                .FirstOrDefault(u => u.Id == id);
-            return character;
-        }
-
         public void CreateCharacter(Character character, Game.Game game)
         {
             character.Game = game;
-
+            character.Stats = new List<Stat>();
             character.Stats
-               .Add(new Stat(StatsType.Hunger)); //System.NullReferenceException: 'Object reference not set to an instance of an object.'
+               .Add(new Stat(StatsType.Hunger)); 
             character.Stats
                .Add(new Stat(StatsType.Thirst));
             character.Stats
@@ -46,9 +39,7 @@ namespace MeilleurDisponnible.Models.Character
             _characterRepository.AddCharacter(character);
         }
 
-        public int SaveCharacter()
-        {
-            return _context.SaveChanges();
-        }
+        public void UpdateCharacterStat
+        
     }
 }

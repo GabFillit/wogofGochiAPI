@@ -14,12 +14,29 @@ namespace MeilleurDisponnible.Models.Character
             _context = context;
         }
 
+        public Character GetCharacter(int id)
+        {
+            var character = _context.CharacterEntity
+                .FirstOrDefault(u => u.Id == id);
+            return character;
+        }
+
         public Character AddCharacter(Character character)
         {
             _context.CharacterEntity
                 .Add(character);
 
             return character;
+        }
+
+        public void DeleteCharacter(Character character)
+        {
+            _context.Remove(character);
+        }
+
+        public int SaveCharacter()
+        {
+            return _context.SaveChanges();
         }
     }
 }

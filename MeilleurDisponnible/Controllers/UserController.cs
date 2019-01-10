@@ -109,7 +109,7 @@ namespace MeilleurDisponnible.Controllers
                 return Ok(user);
             }
 
-            return BadRequest(); ;
+            return BadRequest();
         }
     }
 }

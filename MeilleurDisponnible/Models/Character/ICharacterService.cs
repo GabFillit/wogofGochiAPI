@@ -8,8 +8,7 @@ namespace MeilleurDisponnible.Models.Character
     public interface ICharacterService
     {
         List<Character> GetCharacters();
-        Character GetCharacter(int id);
         void CreateCharacter(Character character, Game.Game game);
-        int SaveCharacter();
+        void UpdateCharacterStats(Character character, UpdateCharacterDTO updateCharacterDTO);
     }
 }

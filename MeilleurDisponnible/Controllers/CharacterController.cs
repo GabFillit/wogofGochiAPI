@@ -17,13 +17,15 @@ namespace MeilleurDisponnible.Controllers
     {
         public ICharacterService _characterService;
         public IGameRepository _gameRepository;
+        private readonly ICharacterRepository _characterRepository;
         public IValidator<Character> _characterValidator;
         public Mapper _mapper;
 
-        public CharacterController(IValidator<Character> characterValidator, ICharacterService characterService, IGameRepository gameRepository)
+        public CharacterController(IValidator<Character> characterValidator, ICharacterService characterService, IGameRepository gameRepository, ICharacterRepository characterRepository)
         {
             _characterService = characterService;
             _gameRepository = gameRepository;
+            _characterRepository = characterRepository;
             _characterValidator = characterValidator;
             _mapper = new Mapper();
         }
@@ -39,7 +41,7 @@ namespace MeilleurDisponnible.Controllers
         [HttpGet("{id}", Name = "Get")]
         public IActionResult Get(int id)
         {
-            Character character = _characterService.GetCharacter(id);
+            Character character = _characterRepository.GetCharacter(id);
             if (character == null)
             {
                 return NotFound();
@@ -68,7 +70,7 @@ namespace MeilleurDisponnible.Controllers
 
             _characterService.CreateCharacter(character, game);
 
-            if (_characterService.SaveCharacter() > 0)
+            if (_characterRepository.SaveCharacter() > 0)
             {
                 return Ok();
             }
@@ -77,14 +79,43 @@ namespace MeilleurDisponnible.Controllers
 
         // PUT: api/Character/5
         [HttpPut("{id}")]
-        public void Put(int id, [FromBody] string value)
+        public IActionResult Put(int id, [FromBody] UpdateCharacterDTO updateCharacterDTO)
         {
+            Character character = _characterRepository.GetCharacter(id);
+            if (character == null)
+            {
+                return NotFound();
+            }
+
+
+            _characterService.UpdateCharacterStats(character, updateCharacterDTO);
+
+
+            if (_characterRepository.SaveCharacter() > 0)
+            {
+                return Ok();
+            }
+
+            return BadRequest(); ;
         }
 
         // DELETE: api/ApiWithActions/5
         [HttpDelete("{id}")]
-        public void Delete(int id)
+        public IActionResult Delete(int id)
         {
+            Character character = _characterRepository.GetCharacter(id);
+            if (character == null)
+            {
+                return NotFound();
+            }
+
+            _characterRepository.DeleteCharacter(character);
+            if (_characterRepository.SaveCharacter() > 0)
+            {
+                return Ok(character);
+            }
+
+            return BadRequest(); ;
         }
     }
 }
