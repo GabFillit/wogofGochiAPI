@@ -17,10 +17,12 @@ namespace MeilleurDisponnible.Models.Character
         public string Name { get; set; }
         public Status CurrentStatus { get; protected set; }
         public IList<Stat> Stats{ get; set; }
+        public DateTime LastUpdate { get; set; }
 
         public Character()
         {
             CurrentStatus = Status.Idle;
+            LastUpdate = DateTime.UtcNow;
         }
     }
 }

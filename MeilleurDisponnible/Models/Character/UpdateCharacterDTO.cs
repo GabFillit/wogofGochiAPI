@@ -6,9 +6,9 @@ using System.Threading.Tasks;
 
 namespace MeilleurDisponnible.Models.Character
 {
-    public class UpdateCharacterDTO
+    public class UpdateCharacterDTO<T>
     {
-        public int action { get; set; }
-        public int selection { get; set; }
+        public Actions action { get; set; }
+        public T selection { get; set; }
     }
 }

@@ -78,8 +78,8 @@ namespace MeilleurDisponnible.Controllers
         }
 
         // PUT: api/Character/5
-        [HttpPut("{id}")]
-        public IActionResult Put(int id, [FromBody] UpdateCharacterDTO updateCharacterDTO)
+        [HttpPut("{id}/manger")]
+        public IActionResult Manger(int id, [FromBody] UpdateCharacterDTO<Foods> updateCharacterDTO)
         {
             Character character = _characterRepository.GetCharacter(id);
             if (character == null)
