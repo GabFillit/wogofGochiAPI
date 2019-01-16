@@ -2,6 +2,6 @@
 {
     Idle,
     Sleeping,
-    Gaming
+    Dead
 };
 

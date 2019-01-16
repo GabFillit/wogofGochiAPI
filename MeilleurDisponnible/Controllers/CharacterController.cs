@@ -88,7 +88,7 @@ namespace MeilleurDisponnible.Controllers
             }
 
 
-            _characterService.UpdateCharacterStats(character, updateCharacterDTO);
+            _characterService.HandleStatusUpdate(character);
 
 
             if (_characterRepository.SaveCharacter() > 0)

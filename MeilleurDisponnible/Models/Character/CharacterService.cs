@@ -53,7 +53,45 @@ namespace MeilleurDisponnible.Models.Character
                 return true;
             }
 
+            var statHealth = character.Stats.FirstOrDefault(s => s.Type == StatsType.Health);
+            var statEnergy = character.Stats.FirstOrDefault(s => s.Type == StatsType.Energy);
+            var statHunger = character.Stats.FirstOrDefault(s => s.Type == StatsType.Hunger);
+            var statThirst = character.Stats.FirstOrDefault(s => s.Type == StatsType.Thirst);
 
+            if (statHealth.Current == 0)
+            {
+                character.CurrentStatus = Status.Dead;
+            }
+
+            switch (character.CurrentStatus)
+            {
+                case Status.Idle:
+                    //TODO: config energy lost per update when idle
+                    statEnergy.RemoveCurrent(1 * factor);
+                    //TODO: config hunger lost per update when idle
+                    statHunger.RemoveCurrent(1 * factor);
+                    //TODO: config thirst lost per update when idle
+                    statThirst.RemoveCurrent(1 * factor);
+                    break;
+                case Status.Sleeping:
+                    //TODO: energy level ++
+                    //TODO: HungerLevel --
+                    //TODO: thirst level --
+                    if (statEnergy.Current == statEnergy.Max)
+                    {
+                        character.CurrentStatus = Status.Idle;
+                    }
+                    break;
+                case Status.Dead:
+                    break;
+                //TODO: case for custom stats
+                default:
+                    break;
+            }
+
+            //TODO: calcul new health
+            //TODO: calcul dans update characte.lastUpdate 
+            return true;
         }
 
         public int GetFactor(DateTime lastUpdate)
