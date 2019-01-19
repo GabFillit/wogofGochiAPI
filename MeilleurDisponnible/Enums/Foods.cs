@@ -1,0 +1,1 @@
+﻿public enum Foods { Banana, Poutine, Chicken, Brocoly }

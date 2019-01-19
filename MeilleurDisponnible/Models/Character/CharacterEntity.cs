@@ -16,8 +16,21 @@ namespace MeilleurDisponnible.Models.Character
 
         public string Name { get; set; }
         public Status CurrentStatus { get; set; }
-        public IList<Stat> Stats{ get; set; }
+        public IList<Stat> Stats { get; set; }
         public DateTime LastUpdate { get; set; }
+
+        public Stat Health
+        {
+            get { return Stats.FirstOrDefault(s => s.Type == StatsType.Health); }
+        }
+
+        public bool IsAlive
+        {
+            get { return Health.Current > 0; }
+
+        }
+
+
 
         public Character()
         {
