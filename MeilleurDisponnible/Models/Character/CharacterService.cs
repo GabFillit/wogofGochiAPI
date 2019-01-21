@@ -37,25 +37,40 @@ namespace MeilleurDisponnible.Models.Character
             _characterRepository.AddCharacter(character);
         }
 
-
-
-        public void Manger(Character character, UpdateCharacterDTO<Foods> updateCharacterDTO)
+        public Character Update(Character character)
         {
+            character = HandleStatusUpdate(character);
+            _characterRepository.AddCharacter(character);
 
+            return character;
         }
 
-        public bool HandleStatusUpdate(Character character)
+        public Character Manger(Character character, Foods selection)
+        {
+            character = HandleStatusUpdate(character);
+
+            //TODO : Like and dislike list in config
+            character.Hunger.AddCurrent(20);
+
+            _characterRepository.AddCharacter(character);
+
+            return character;
+        }
+
+        public Character HandleStatusUpdate(Character character)
         {
             var factor = GetFactor(character.LastUpdate);
 
             if (factor == 0)
             {
-                return true;
+                return character;
             }
 
-            var statEnergy = character.Stats.FirstOrDefault(s => s.Type == StatsType.Energy);
-            var statHunger = character.Stats.FirstOrDefault(s => s.Type == StatsType.Hunger);
-            var statThirst = character.Stats.FirstOrDefault(s => s.Type == StatsType.Thirst);
+            var statEnergy = character.Energy;
+            var statHunger = character.Hunger;
+            var statThirst = character.Thirst;
+            var statHealth = character.Health;
+
 
             if (!character.IsAlive)
             {
@@ -75,10 +90,14 @@ namespace MeilleurDisponnible.Models.Character
                         statThirst.RemoveCurrent(1);
                         break;
                     case Status.Sleeping:
-                        //TODO: energy level ++
-                        //TODO: HungerLevel --
-                        //TODO: thirst level --
-                        if (statEnergy.Current == statEnergy.Max)
+                        //TODO: energy level gain when sleep
+                        statEnergy.AddCurrent(2);
+                        //TODO: config hunger lost per update when sleep
+                        statEnergy.RemoveCurrent(1);
+                        //TODO: config thirst lost per update when sleep
+                        statEnergy.RemoveCurrent(1);
+
+                        if (character.IsTired)
                         {
                             character.CurrentStatus = Status.Idle;
                         }
@@ -91,8 +110,9 @@ namespace MeilleurDisponnible.Models.Character
                 }
             }
             //TODO: calcul new health
-            //TODO: calcul dans update characte.lastUpdate 
-            return true;
+            //TODO: calcul dans update characte.lastUpdate
+            
+            return character;
         }
 
         public int GetFactor(DateTime lastUpdate)

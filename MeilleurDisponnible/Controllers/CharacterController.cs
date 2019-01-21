@@ -46,6 +46,11 @@ namespace MeilleurDisponnible.Controllers
             {
                 return NotFound();
             }
+
+            character = _characterService.Update(character);
+
+            _characterRepository.SaveCharacter();
+           
             return Ok(character);
         }
 
@@ -77,9 +82,9 @@ namespace MeilleurDisponnible.Controllers
             return BadRequest();
         }
 
-        // PUT: api/Character/5
+        // PUT: api/Character/5/manger
         [HttpPut("{id}/manger")]
-        public IActionResult Manger(int id, [FromBody] UpdateCharacterDTO<Foods> updateCharacterDTO)
+        public IActionResult Manger(int id, [FromBody] int choice)
         {
             Character character = _characterRepository.GetCharacter(id);
             if (character == null)
@@ -87,9 +92,7 @@ namespace MeilleurDisponnible.Controllers
                 return NotFound();
             }
 
-
-            _characterService.HandleStatusUpdate(character);
-
+            _characterService.Manger(character, (Foods)choice);
 
             if (_characterRepository.SaveCharacter() > 0)
             {

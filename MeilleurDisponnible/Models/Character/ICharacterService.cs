@@ -9,8 +9,9 @@ namespace MeilleurDisponnible.Models.Character
     {
         List<Character> GetCharacters();
         void CreateCharacter(Character character, Game.Game game);
-        bool HandleStatusUpdate(Character character);
-        void Manger(Character character, UpdateCharacterDTO<Foods> updateCharacterDTO);
+        Character HandleStatusUpdate(Character character);
+        Character Update(Character character);
+        Character Manger(Character character, Foods selection);
         int GetFactor(DateTime lastUpdate);
     }
 }
