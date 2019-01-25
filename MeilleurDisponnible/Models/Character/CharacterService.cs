@@ -57,6 +57,41 @@ namespace MeilleurDisponnible.Models.Character
             return character;
         }
 
+        public Character Boire(Character character, Drinks choice)
+        {
+            character = HandleStatusUpdate(character);
+
+            //TODO : Like and dislike list in config
+            character.Thirst.AddCurrent(20);
+
+            _characterRepository.AddCharacter(character);
+
+            return character;
+        }
+
+        public Character Dormir(Character character)
+        {
+            character = HandleStatusUpdate(character);
+
+            switch (character.CurrentStatus)
+            {
+                case Status.Idle:
+                    character.CurrentStatus = Status.Sleeping;
+                    break;
+                case Status.Sleeping:
+                    character.CurrentStatus = Status.Idle;
+                    break;
+                case Status.Dead:
+                    return character;
+                default:
+                    break;
+            }
+
+            _characterRepository.AddCharacter(character);
+
+            return character;
+        }
+
         public Character HandleStatusUpdate(Character character)
         {
             var factor = GetFactor(character.LastUpdate);
@@ -65,12 +100,6 @@ namespace MeilleurDisponnible.Models.Character
             {
                 return character;
             }
-
-            var statEnergy = character.Energy;
-            var statHunger = character.Hunger;
-            var statThirst = character.Thirst;
-            var statHealth = character.Health;
-
 
             if (!character.IsAlive)
             {
@@ -83,19 +112,19 @@ namespace MeilleurDisponnible.Models.Character
                 {
                     case Status.Idle:
                         //TODO: config energy lost per update when idle
-                        statEnergy.RemoveCurrent(1);
+                        character.Energy.RemoveCurrent(1);
                         //TODO: config hunger lost per update when idle
-                        statHunger.RemoveCurrent(1);
+                        character.Hunger.RemoveCurrent(1);
                         //TODO: config thirst lost per update when idle
-                        statThirst.RemoveCurrent(1);
+                        character.Thirst.RemoveCurrent(1);
                         break;
                     case Status.Sleeping:
                         //TODO: energy level gain when sleep
-                        statEnergy.AddCurrent(2);
+                        character.Energy.AddCurrent(2);
                         //TODO: config hunger lost per update when sleep
-                        statEnergy.RemoveCurrent(1);
+                        character.Hunger.RemoveCurrent(1);
                         //TODO: config thirst lost per update when sleep
-                        statEnergy.RemoveCurrent(1);
+                        character.Thirst.RemoveCurrent(1);
 
                         if (character.IsTired)
                         {
@@ -103,14 +132,17 @@ namespace MeilleurDisponnible.Models.Character
                         }
                         break;
                     case Status.Dead:
-                        break;
+                        return character;
                     //TODO: case for custom stats
                     default:
                         break;
                 }
+
+                character = CalculHealthUpdate(character);
             }
-            //TODO: calcul new health
-            //TODO: calcul dans update characte.lastUpdate
+
+            //TODO: characte.lastUpdate config time
+            character.LastUpdate.AddSeconds(factor * 5);
             
             return character;
         }
@@ -119,6 +151,27 @@ namespace MeilleurDisponnible.Models.Character
         {
             var deltaTime = lastUpdate - DateTime.UtcNow;
             return (int)Math.Floor(deltaTime.TotalSeconds / 5);
+        }
+
+        //TODO: config shits
+        public Character CalculHealthUpdate(Character character)
+        {
+            bool hurt = false;
+            if (character.IsHungry)
+            {
+                character.Health.RemoveCurrent(2);
+                hurt = true;
+            }
+            if (character.IsThirsty)
+            {
+                character.Health.RemoveCurrent(2);
+                hurt = true;
+            }
+            if (!hurt)
+            {
+                character.Health.AddCurrent(2);
+            }
+            return character;
         }
     }
 }

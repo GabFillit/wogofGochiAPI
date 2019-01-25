@@ -69,6 +69,17 @@ namespace MeilleurDisponnible.Models.Character
 
         }
 
+        [NotMapped]
+        public bool IsHungry
+        {
+            get { return Hunger.Current == Hunger.Min; }
+        }
+
+        [NotMapped]
+        public bool IsThirsty
+        {
+            get { return Thirst.Current == Thirst.Min; }
+        }
 
         public Character()
         {

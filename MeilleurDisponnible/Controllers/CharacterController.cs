@@ -99,7 +99,47 @@ namespace MeilleurDisponnible.Controllers
                 return Ok();
             }
 
-            return BadRequest(); ;
+            return BadRequest();
+        }
+
+        // PUT: api/Character/5/boire
+        [HttpPut("{id}/boire")]
+        public IActionResult Boire(int id, [FromBody] int choice)
+        {
+            Character character = _characterRepository.GetCharacter(id);
+            if (character == null)
+            {
+                return NotFound();
+            }
+
+            _characterService.Boire(character, (Drinks)choice);
+
+            if (_characterRepository.SaveCharacter() > 0)
+            {
+                return Ok();
+            }
+
+            return BadRequest();
+        }
+
+        // PUT: api/Character/5/dormir
+        [HttpPut("{id}/dormir")]
+        public IActionResult Dormir(int id)
+        {
+            Character character = _characterRepository.GetCharacter(id);
+            if (character == null)
+            {
+                return NotFound();
+            }
+
+            _characterService.Dormir(character);
+
+            if (_characterRepository.SaveCharacter() > 0)
+            {
+                return Ok();
+            }
+
+            return BadRequest();
         }
 
         // DELETE: api/ApiWithActions/5
@@ -118,7 +158,7 @@ namespace MeilleurDisponnible.Controllers
                 return Ok(character);
             }
 
-            return BadRequest(); ;
+            return BadRequest();
         }
     }
 }

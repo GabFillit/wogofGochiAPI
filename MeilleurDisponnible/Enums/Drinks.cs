@@ -1,0 +1,1 @@
+﻿public enum Drinks { Water, Juice, Beer, Pepsi }
